@@ -36,10 +36,7 @@
 }
 
 - (void)setUpNavigationBar {
-    self.navigationController.navigationBar.translucent = YES;
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithWhite:0.0 alpha:0.3]];
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
+    [self.navigationController.navigationBar setHidden:YES];
 }
 
 - (void)setupUI {
