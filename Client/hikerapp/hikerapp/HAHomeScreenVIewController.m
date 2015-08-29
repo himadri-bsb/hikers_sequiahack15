@@ -13,7 +13,7 @@
 #import "HACommonDefs.h"
 #import "HABuddyTableViewCell.h"
 
-@interface HAHomeScreenVIewController () <BeaconstacDelegate, UIActionSheetDelegate>
+@interface HAHomeScreenVIewController () <UIActionSheetDelegate>
 
 @property (nonatomic, strong) Beaconstac *beaconstacInstance;
 
@@ -26,14 +26,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    //BLE beacon setup
-    [[MSLogger sharedInstance]setLoglevel:MSLogLevelNone];
-    self.beaconstacInstance = [Beaconstac sharedInstanceWithOrganizationId:80 developerToken:@"353e54f0a36e3d64a69d4e9bc292487628dcbf07"];
-    self.beaconstacInstance.delegate = self;
-    self.beaconstacInstance.beaconaffinity = MSBeaconAffinityLow;
-
-    [self.beaconstacInstance startRangingBeaconsWithUUIDString:BEACON_UDID beaconIdentifier:@"com.hike.hikerapp" filterOptions:nil];
     
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(didTapMenuButton:)];
     self.navigationItem.leftBarButtonItem = leftButton;
