@@ -10,4 +10,6 @@
 
 @interface HASignupInfoViewController : UIViewController
 
+@property (nonatomic, assign) BOOL isSignUpMode;
+
 @end

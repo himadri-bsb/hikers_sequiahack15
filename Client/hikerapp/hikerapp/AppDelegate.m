@@ -41,7 +41,9 @@
         slideMenu.contentViewInPortraitOffsetCenterX = -50;
         self.window.rootViewController = slideMenu;
     } else {
-        HASignupInfoViewController *signUpViewController = [[HASignupInfoViewController alloc] init];
+//        HASignupInfoViewController *signUpViewController = [[HASignupInfoViewController alloc] init];
+//        signUpViewController.isSignUpMode = YES;
+        HASettingsViewController *signUpViewController = [[HASettingsViewController alloc] init];
         UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:signUpViewController];
         self.window.rootViewController = navigationVC;
     }
