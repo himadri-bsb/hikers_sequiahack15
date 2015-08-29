@@ -14,4 +14,9 @@
 #define UNKNOWN_LOCATION @"Location Not Known"
 #define BEACON_UDID @"B9407F30-F5F8-466E-AFF9-25556B57FE6D"
 
+#define LOCATION_DESK @"Desk"
+#define LOCATION_CAFE @"Cafeteria"
+
+#define INSTALLATION_USER_ID @"installUserId"
+
 #endif

@@ -13,6 +13,9 @@
 #import "HALeftMenuViewController.h"
 #import <Fabric/Fabric.h>
 #import <DigitsKit/DigitsKit.h>
+#import "HASettingsViewController.h"
+#import <Parse/Parse.h>
+#import "HACommonDefs.h"
 
 @interface AppDelegate ()
 
@@ -23,6 +26,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [Fabric with:@[[Digits class]]];
+
+    // Initialize Parse.
+    [Parse setApplicationId:@"qLlhWwYL79kT5t5ZnRh7no5Ty8OaNwbVdIo3Nfpf"
+                  clientKey:@"DdpySFGhZUZ24wp9aS1pb83HcZAy6vVlqlVYSocW"];
+
     [self setUpRootVC];
     return YES;
 }
@@ -59,13 +67,17 @@
 }
 
 - (void)registerForRemoteNotifications {
-    UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil];
-    [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                    UIUserNotificationTypeBadge |
+                                                    UIUserNotificationTypeSound);
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                             categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     [[UIApplication sharedApplication] registerForRemoteNotifications];
 }
 
 - (BOOL)signedIn {
-    return YES;
+    return ([PFUser currentUser] != nil);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -84,7 +96,32 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    if ([PFUser currentUser]) {
+        //save the installation
+        PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+        currentInstallation[INSTALLATION_USER_ID] = [[PFUser currentUser] objectId];
+        // here we add a column to the installation table and store the current user’s ID
+        // this way we can target specific users later
+
+        // while we’re at it, this is a good place to reset our app’s badge count
+        // you have to do this locally as well as on the parse server by updating
+        // the PFInstallation object
+        if (currentInstallation.badge != 0) {
+            currentInstallation.badge = 0;
+            [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (error) {
+                    NSLog(@"Error is saving installation");
+                }
+                else {
+                    // only update locally if the remote update succeeded so they always match
+                    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+                    NSLog(@"updated badge");
+                }
+            }];
+        }
+    }
 }
+
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
@@ -94,12 +131,17 @@
 //Push notification
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSLog(@"Did Register for Remote Notifications with Device Token (%@)", deviceToken);
+
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    currentInstallation.channels = @[@"global"];
+    [currentInstallation saveInBackground];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     NSLog(@"Did Fail to Register for Remote Notifications");
     NSLog(@"%@, %@", error, error.localizedDescription);
-
 }
 
 @end

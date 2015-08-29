@@ -10,6 +10,21 @@
 		01AB3B0C1B91C1CD004625F9 /* HASignupInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AB3B0B1B91C1CD004625F9 /* HASignupInfoViewController.m */; };
 		01AB3B121B91F2B1004625F9 /* HASettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AB3B111B91F2B1004625F9 /* HASettingsViewController.m */; };
 		260A959F1B91D34300DE286A /* HAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 260A959E1B91D34300DE286A /* HAUser.m */; };
+		260A95A61B92173800DE286A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260A95A51B92173800DE286A /* AudioToolbox.framework */; };
+		260A95A81B92174000DE286A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260A95A71B92174000DE286A /* CFNetwork.framework */; };
+		260A95AA1B92174B00DE286A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260A95A91B92174B00DE286A /* CoreGraphics.framework */; };
+		260A95AC1B92175700DE286A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260A95AB1B92175700DE286A /* QuartzCore.framework */; };
+		260A95AE1B92177A00DE286A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260A95AD1B92177A00DE286A /* StoreKit.framework */; };
+		260A95B01B92178900DE286A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 260A95AF1B92178900DE286A /* libz.dylib */; };
+		260A95B21B92179800DE286A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 260A95B11B92179800DE286A /* libsqlite3.dylib */; };
+		260A95BB1B92185B00DE286A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260A95B41B92185B00DE286A /* Bolts.framework */; };
+		260A95BC1B92185B00DE286A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260A95B51B92185B00DE286A /* Parse.framework */; };
+		260A95BD1B92185B00DE286A /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260A95B61B92185B00DE286A /* ParseCrashReporting.framework */; };
+		260A95BE1B92185B00DE286A /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260A95B71B92185B00DE286A /* ParseFacebookUtils.framework */; };
+		260A95BF1B92185B00DE286A /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260A95B81B92185B00DE286A /* ParseFacebookUtilsV4.framework */; };
+		260A95C01B92185B00DE286A /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260A95B91B92185B00DE286A /* ParseTwitterUtils.framework */; };
+		260A95C11B92185B00DE286A /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260A95BA1B92185B00DE286A /* ParseUI.framework */; };
+		260A95C41B92195D00DE286A /* HAModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 260A95C31B92195D00DE286A /* HAModelManager.m */; };
 		26B446891B91C5D70066F83C /* Beaconstac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B446881B91C5D70066F83C /* Beaconstac.framework */; };
 		26B4468B1B91C6040066F83C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B4468A1B91C6040066F83C /* SystemConfiguration.framework */; };
 		26B4468D1B91C60F0066F83C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B4468C1B91C60F0066F83C /* CoreData.framework */; };
@@ -85,6 +100,22 @@
 		260A959D1B91D34300DE286A /* HAUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAUser.h; sourceTree = "<group>"; };
 		260A959E1B91D34300DE286A /* HAUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAUser.m; sourceTree = "<group>"; };
 		260A95A01B91D78400DE286A /* HACommonDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HACommonDefs.h; sourceTree = "<group>"; };
+		260A95A51B92173800DE286A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		260A95A71B92174000DE286A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		260A95A91B92174B00DE286A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		260A95AB1B92175700DE286A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		260A95AD1B92177A00DE286A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		260A95AF1B92178900DE286A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		260A95B11B92179800DE286A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		260A95B41B92185B00DE286A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		260A95B51B92185B00DE286A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		260A95B61B92185B00DE286A /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
+		260A95B71B92185B00DE286A /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		260A95B81B92185B00DE286A /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		260A95B91B92185B00DE286A /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
+		260A95BA1B92185B00DE286A /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		260A95C21B92195D00DE286A /* HAModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAModelManager.h; sourceTree = "<group>"; };
+		260A95C31B92195D00DE286A /* HAModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAModelManager.m; sourceTree = "<group>"; };
 		26B446881B91C5D70066F83C /* Beaconstac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Beaconstac.framework; sourceTree = "<group>"; };
 		26B4468A1B91C6040066F83C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		26B4468C1B91C60F0066F83C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -190,14 +221,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				260A95B21B92179800DE286A /* libsqlite3.dylib in Frameworks */,
+				260A95B01B92178900DE286A /* libz.dylib in Frameworks */,
+				260A95AE1B92177A00DE286A /* StoreKit.framework in Frameworks */,
+				52EDFCD41B91CFED004C65DB /* Security.framework in Frameworks */,
+				260A95AC1B92175700DE286A /* QuartzCore.framework in Frameworks */,
+				260A95C01B92185B00DE286A /* ParseTwitterUtils.framework in Frameworks */,
+				260A95C11B92185B00DE286A /* ParseUI.framework in Frameworks */,
+				260A95AA1B92174B00DE286A /* CoreGraphics.framework in Frameworks */,
+				260A95A81B92174000DE286A /* CFNetwork.framework in Frameworks */,
+				260A95A61B92173800DE286A /* AudioToolbox.framework in Frameworks */,
 				26B446911B91C61D0066F83C /* CoreLocation.framework in Frameworks */,
 				26B4468B1B91C6040066F83C /* SystemConfiguration.framework in Frameworks */,
+				260A95BF1B92185B00DE286A /* ParseFacebookUtilsV4.framework in Frameworks */,
 				52EDFCD61B91CFF3004C65DB /* MobileCoreServices.framework in Frameworks */,
-				52EDFCD41B91CFED004C65DB /* Security.framework in Frameworks */,
+				260A95BD1B92185B00DE286A /* ParseCrashReporting.framework in Frameworks */,
 				26B4468F1B91C6140066F83C /* CoreBluetooth.framework in Frameworks */,
 				26B4468D1B91C60F0066F83C /* CoreData.framework in Frameworks */,
+				260A95BE1B92185B00DE286A /* ParseFacebookUtils.framework in Frameworks */,
+				260A95BC1B92185B00DE286A /* Parse.framework in Frameworks */,
 				52EDFCB31B91CDEE004C65DB /* DigitsKit.framework in Frameworks */,
 				52EDFCB51B91CDEE004C65DB /* TwitterCore.framework in Frameworks */,
+				260A95BB1B92185B00DE286A /* Bolts.framework in Frameworks */,
 				26B446891B91C5D70066F83C /* Beaconstac.framework in Frameworks */,
 				52EDFCB21B91CDEE004C65DB /* Fabric.framework in Frameworks */,
 			);
@@ -216,12 +261,28 @@
 		260A95991B91D30300DE286A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				260A95A01B91D78400DE286A /* HACommonDefs.h */,
+				260A95C21B92195D00DE286A /* HAModelManager.h */,
+				260A95C31B92195D00DE286A /* HAModelManager.m */,
 				260A959D1B91D34300DE286A /* HAUser.h */,
 				260A959E1B91D34300DE286A /* HAUser.m */,
+				260A95A01B91D78400DE286A /* HACommonDefs.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
+		};
+		260A95B31B92185B00DE286A /* parse-library-1.8.2 */ = {
+			isa = PBXGroup;
+			children = (
+				260A95B41B92185B00DE286A /* Bolts.framework */,
+				260A95B51B92185B00DE286A /* Parse.framework */,
+				260A95B61B92185B00DE286A /* ParseCrashReporting.framework */,
+				260A95B71B92185B00DE286A /* ParseFacebookUtils.framework */,
+				260A95B81B92185B00DE286A /* ParseFacebookUtilsV4.framework */,
+				260A95B91B92185B00DE286A /* ParseTwitterUtils.framework */,
+				260A95BA1B92185B00DE286A /* ParseUI.framework */,
+			);
+			path = "parse-library-1.8.2";
+			sourceTree = SOURCE_ROOT;
 		};
 		26B446871B91C5D70066F83C /* BeaconstacSDK */ = {
 			isa = PBXGroup;
@@ -235,6 +296,13 @@
 			isa = PBXGroup;
 			children = (
 				26EEF7B31B91AEB500132A92 /* hikerapp */,
+				260A95B11B92179800DE286A /* libsqlite3.dylib */,
+				260A95AF1B92178900DE286A /* libz.dylib */,
+				260A95AD1B92177A00DE286A /* StoreKit.framework */,
+				260A95AB1B92175700DE286A /* QuartzCore.framework */,
+				260A95A91B92174B00DE286A /* CoreGraphics.framework */,
+				260A95A71B92174000DE286A /* CFNetwork.framework */,
+				260A95A51B92173800DE286A /* AudioToolbox.framework */,
 				52EDFCD51B91CFF3004C65DB /* MobileCoreServices.framework */,
 				26B446901B91C61D0066F83C /* CoreLocation.framework */,
 				26B4468E1B91C6140066F83C /* CoreBluetooth.framework */,
@@ -260,6 +328,7 @@
 			children = (
 				52EDFD1C1B9220F2004C65DB /* Image Resize */,
 				52EDFCE81B922012004C65DB /* SDWebImage */,
+				260A95B31B92185B00DE286A /* parse-library-1.8.2 */,
 				260A95991B91D30300DE286A /* Model */,
 				26EEF7B81B91AEB500132A92 /* AppDelegate.h */,
 				26EEF7B91B91AEB500132A92 /* AppDelegate.m */,
@@ -563,6 +632,7 @@
 				260A959F1B91D34300DE286A /* HAUser.m in Sources */,
 				52EDFCCC1B91CFB1004C65DB /* AFHTTPSessionManager.m in Sources */,
 				D34C728D1B91BF8800C2586F /* HAHomeScreenVIewController.m in Sources */,
+				260A95C41B92195D00DE286A /* HAModelManager.m in Sources */,
 				52EDFC621B91BA5C004C65DB /* RESideMenu.m in Sources */,
 				01AB3B0C1B91C1CD004625F9 /* HASignupInfoViewController.m in Sources */,
 				52EDFCCE1B91CFB1004C65DB /* AFSecurityPolicy.m in Sources */,
@@ -704,6 +774,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/hikerapp/BeaconstacSDK",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Parse",
+					"$(PROJECT_DIR)/parse-library-1.8.2",
 				);
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/hikerapp/PrefixHeader.pch";
 				INFOPLIST_FILE = hikerapp/Info.plist;
@@ -721,6 +793,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/hikerapp/BeaconstacSDK",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Parse",
+					"$(PROJECT_DIR)/parse-library-1.8.2",
 				);
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/hikerapp/PrefixHeader.pch";
 				INFOPLIST_FILE = hikerapp/Info.plist;
