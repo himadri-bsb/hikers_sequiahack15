@@ -48,10 +48,11 @@
         UINavigationController *navigationVC = [[UINavigationController alloc] init];
         [navigationVC.navigationBar setBarTintColor:[UIColor colorWithRed:51.0f/255.0f green:150.0f/255.0f blue:174.0f/255.0f alpha:0.8f]];
         [navigationVC.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
+        [navigationVC.navigationBar setTintColor:[UIColor whiteColor]];
         Digits *digits = [Digits sharedInstance];
         DGTAppearance *appearance = [[DGTAppearance alloc] init];
         appearance.accentColor = [UIColor colorWithRed:51.0f/255.0f green:150.0f/255.0f blue:174.0f/255.0f alpha:0.8f];
-        [digits authenticateWithNavigationViewController:navigationVC phoneNumber:@"" digitsAppearance:appearance title:nil completionViewController:signUpViewController];
+        [digits authenticateWithNavigationViewController:navigationVC phoneNumber:@"+91" digitsAppearance:appearance title:nil completionViewController:signUpViewController];
         self.window.rootViewController = navigationVC;
     }
     [self.window makeKeyAndVisible];
