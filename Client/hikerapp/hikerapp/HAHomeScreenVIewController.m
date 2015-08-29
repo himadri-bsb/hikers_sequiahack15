@@ -11,11 +11,13 @@
 #import "RESideMenu.h"
 #import <Beaconstac/Beaconstac.h>
 #import "HACommonDefs.h"
+#import "HABuddyTableViewCell.h"
 
 @interface HAHomeScreenVIewController () <BeaconstacDelegate>
 
 @property (nonatomic, strong) Beaconstac *beaconstacInstance;
 
+@property (weak, nonatomic) IBOutlet UITableView *tablevIew;
 @end
 
 @implementation HAHomeScreenVIewController
@@ -31,6 +33,11 @@
     
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(didTapMenuButton:)];
     self.navigationItem.leftBarButtonItem = leftButton;
+    
+    [self.tablevIew registerNib:[UINib nibWithNibName:@"HABuddyTableViewCell" bundle:nil] forCellReuseIdentifier:@"buddyCell"];
+    
+    self.tablevIew.separatorInset = UIEdgeInsetsMake(0, 75, 0, 0);
+    self.tablevIew.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)didTapMenuButton:(id)sender {
@@ -67,6 +74,45 @@
 
     //Send location to server if it has changed
 }
+
+
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    HABuddyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buddyCell"];
+//    if (!cell) {
+//        cell = [[HABuddyTableViewCell alloc] initWithStyle:UITableViewCellStyle reuseIdentifier:@"buddyCell"];
+//        cell.backgroundColor = [UIColor clearColor];
+//        cell.textLabel.textColor = [UIColor whiteColor];
+//    }
+    return cell;
+}
+
+#pragma mark - Table view delegate
+
+// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        
+    }
+    else if(indexPath.row == 1) {
+        
+    }
+    else {
+        
+    }
+}
+
+
 
 
 @end

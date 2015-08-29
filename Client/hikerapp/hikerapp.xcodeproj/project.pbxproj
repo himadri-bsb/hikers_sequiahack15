@@ -42,6 +42,8 @@
 		D34C728E1B91BF8800C2586F /* HAHomeScreenVIewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34C728C1B91BF8800C2586F /* HAHomeScreenVIewController.xib */; };
 		D34C729D1B91C82000C2586F /* HALeftMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C729B1B91C82000C2586F /* HALeftMenuTableViewController.m */; };
 		D34C729E1B91C82000C2586F /* HALeftMenuTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34C729C1B91C82000C2586F /* HALeftMenuTableViewController.xib */; };
+		D34C72A21B91DA0100C2586F /* HABuddyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C72A01B91DA0100C2586F /* HABuddyTableViewCell.m */; };
+		D34C72A31B91DA0100C2586F /* HABuddyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34C72A11B91DA0100C2586F /* HABuddyTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,9 @@
 		D34C729A1B91C82000C2586F /* HALeftMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALeftMenuTableViewController.h; sourceTree = "<group>"; };
 		D34C729B1B91C82000C2586F /* HALeftMenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALeftMenuTableViewController.m; sourceTree = "<group>"; };
 		D34C729C1B91C82000C2586F /* HALeftMenuTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALeftMenuTableViewController.xib; sourceTree = "<group>"; };
+		D34C729F1B91DA0100C2586F /* HABuddyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HABuddyTableViewCell.h; sourceTree = "<group>"; };
+		D34C72A01B91DA0100C2586F /* HABuddyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HABuddyTableViewCell.m; sourceTree = "<group>"; };
+		D34C72A11B91DA0100C2586F /* HABuddyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HABuddyTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +205,9 @@
 				D34C729C1B91C82000C2586F /* HALeftMenuTableViewController.xib */,
 				01AB3B0A1B91C1CD004625F9 /* HASignupInfoViewController.h */,
 				01AB3B0B1B91C1CD004625F9 /* HASignupInfoViewController.m */,
+				D34C729F1B91DA0100C2586F /* HABuddyTableViewCell.h */,
+				D34C72A01B91DA0100C2586F /* HABuddyTableViewCell.m */,
+				D34C72A11B91DA0100C2586F /* HABuddyTableViewCell.xib */,
 				26EEF7C11B91AEB500132A92 /* Images.xcassets */,
 				26EEF7C31B91AEB500132A92 /* LaunchScreen.xib */,
 				52EDFCB61B91CF8E004C65DB /* Network */,
@@ -365,6 +373,7 @@
 			files = (
 				52EDFCB41B91CDEE004C65DB /* DigitsKitResources.bundle in Resources */,
 				D34C728E1B91BF8800C2586F /* HAHomeScreenVIewController.xib in Resources */,
+				D34C72A31B91DA0100C2586F /* HABuddyTableViewCell.xib in Resources */,
 				26EEF7C51B91AEB500132A92 /* LaunchScreen.xib in Resources */,
 				26B446951B91C80C0066F83C /* BeaconstacData.bundle in Resources */,
 				D34C729E1B91C82000C2586F /* HALeftMenuTableViewController.xib in Resources */,
@@ -418,6 +427,7 @@
 				52EDFC611B91BA5C004C65DB /* RECommonFunctions.m in Sources */,
 				52EDFCD01B91CFB1004C65DB /* AFURLRequestSerialization.m in Sources */,
 				52EDFCCD1B91CFB1004C65DB /* AFNetworkReachabilityManager.m in Sources */,
+				D34C72A21B91DA0100C2586F /* HABuddyTableViewCell.m in Sources */,
 				52EDFCD11B91CFB1004C65DB /* AFURLResponseSerialization.m in Sources */,
 				52EDFC631B91BA5C004C65DB /* UIViewController+RESideMenu.m in Sources */,
 			);
