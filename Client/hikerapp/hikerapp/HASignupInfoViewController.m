@@ -226,7 +226,8 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSLog(@"Registration success!");
                 currentUser.phoneNumber = self.session.phoneNumber;
-                currentUser.userName = self.nameTextField.text;
+                currentUser.userName = self.session.phoneNumber;
+                currentUser.name = self.nameTextField.text;
                 currentUser.userID = self.session.userID;
                 currentUser.image = self.avatarImageView.image;
                 
@@ -256,7 +257,8 @@
                                                         NSLog(@"Registration success!");
                                                         currentUser.parseUser = user;
                                                         currentUser.phoneNumber = self.session.phoneNumber;
-                                                        currentUser.userName = self.nameTextField.text;
+                                                        currentUser.userName = self.session.phoneNumber;
+                                                        currentUser.name = self.nameTextField.text;
                                                         currentUser.userID = self.session.userID;
                                                         currentUser.image = self.avatarImageView.image;
                                                         
