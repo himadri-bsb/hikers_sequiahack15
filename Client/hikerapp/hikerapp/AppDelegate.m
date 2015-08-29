@@ -16,6 +16,7 @@
 #import "HASettingsViewController.h"
 #import <Parse/Parse.h>
 #import "HACommonDefs.h"
+#import "SVProgressHUD.h"
 
 @interface AppDelegate ()
 
@@ -143,5 +144,23 @@
     NSLog(@"Did Fail to Register for Remote Notifications");
     NSLog(@"%@, %@", error, error.localizedDescription);
 }
+
+- (void)showLoader:(BOOL)show {
+    if (show) {
+        [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.9]];
+        [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
+        [SVProgressHUD show];
+    }
+    else {
+        [SVProgressHUD dismiss];
+    }
+}
+
++ (AppDelegate *)sharedAppDelegate
+{
+    return  (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
 
 @end

@@ -14,5 +14,9 @@
 
 - (void)registerForRemoteNotifications;
 
+- (void)showLoader:(BOOL)show;
+
++ (AppDelegate *)sharedAppDelegate;
+
 @end
 

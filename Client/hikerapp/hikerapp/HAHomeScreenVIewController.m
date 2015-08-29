@@ -12,6 +12,7 @@
 #import <Beaconstac/Beaconstac.h>
 #import "HACommonDefs.h"
 #import "HABuddyTableViewCell.h"
+#import "AppDelegate.h"
 
 @interface HAHomeScreenVIewController () <UIActionSheetDelegate>
 
@@ -65,6 +66,7 @@
 
 - (void)didTapRefreshButton:(id)sender {
     //Refresh code
+    [[AppDelegate sharedAppDelegate] showLoader:YES];
 }
 
 - (void)didReceiveMemoryWarning {
