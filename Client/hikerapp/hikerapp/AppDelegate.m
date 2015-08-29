@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "RESideMenu.h"
 #import "HAHomeScreenVIewController.h"
+#import "HASignupInfoViewController.h"
 
 @interface AppDelegate ()
 
@@ -24,14 +25,23 @@
 
 
 - (void)setUpRootVC {
-    HAHomeScreenVIewController *homeScreen = [[HAHomeScreenVIewController alloc] initWithNibName:@"HAHomeScreenVIewController" bundle:nil];
-    UINavigationController *navigatioNVC = [[UINavigationController alloc] initWithRootViewController:homeScreen];
-
-    self.window.rootViewController = [[RESideMenu alloc] initWithContentViewController:navigatioNVC leftMenuViewController:nil rightMenuViewController:nil];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    if ([self signedIn]) {
+        HAHomeScreenVIewController *homeScreen = [[HAHomeScreenVIewController alloc] initWithNibName:@"HAHomeScreenVIewController" bundle:nil];
+        UINavigationController *navigatioNVC = [[UINavigationController alloc] initWithRootViewController:homeScreen];
+        
+        self.window.rootViewController = [[RESideMenu alloc] initWithContentViewController:navigatioNVC leftMenuViewController:nil rightMenuViewController:nil];
+    } else {
+        HASignupInfoViewController *signUpViewController = [[HASignupInfoViewController alloc] init];
+        UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:signUpViewController];
+        self.window.rootViewController = navigationVC;
+    }
+    [self.window makeKeyAndVisible];
 }
 
 - (BOOL)signedIn {
-    return YES;
+    return NO;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

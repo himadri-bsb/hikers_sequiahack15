@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01AB3B0C1B91C1CD004625F9 /* HASignupInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AB3B0B1B91C1CD004625F9 /* HASignupInfoViewController.m */; };
 		26EEF7B71B91AEB500132A92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEF7B61B91AEB500132A92 /* main.m */; };
 		26EEF7BA1B91AEB500132A92 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEF7B91B91AEB500132A92 /* AppDelegate.m */; };
 		26EEF7C21B91AEB500132A92 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26EEF7C11B91AEB500132A92 /* Images.xcassets */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01AB3B0A1B91C1CD004625F9 /* HASignupInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HASignupInfoViewController.h; sourceTree = "<group>"; };
+		01AB3B0B1B91C1CD004625F9 /* HASignupInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HASignupInfoViewController.m; sourceTree = "<group>"; };
 		26EEF7B11B91AEB500132A92 /* hikerapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hikerapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26EEF7B51B91AEB500132A92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26EEF7B61B91AEB500132A92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -95,6 +98,8 @@
 				D34C728A1B91BF8800C2586F /* HAHomeScreenVIewController.h */,
 				D34C728B1B91BF8800C2586F /* HAHomeScreenVIewController.m */,
 				D34C728C1B91BF8800C2586F /* HAHomeScreenVIewController.xib */,
+				01AB3B0A1B91C1CD004625F9 /* HASignupInfoViewController.h */,
+				01AB3B0B1B91C1CD004625F9 /* HASignupInfoViewController.m */,
 				26EEF7C11B91AEB500132A92 /* Images.xcassets */,
 				26EEF7C31B91AEB500132A92 /* LaunchScreen.xib */,
 				52EDFC5A1B91B9A0004C65DB /* SideMenu */,
@@ -246,6 +251,7 @@
 				26EEF7B71B91AEB500132A92 /* main.m in Sources */,
 				D34C728D1B91BF8800C2586F /* HAHomeScreenVIewController.m in Sources */,
 				52EDFC621B91BA5C004C65DB /* RESideMenu.m in Sources */,
+				01AB3B0C1B91C1CD004625F9 /* HASignupInfoViewController.m in Sources */,
 				52EDFC611B91BA5C004C65DB /* RECommonFunctions.m in Sources */,
 				52EDFC631B91BA5C004C65DB /* UIViewController+RESideMenu.m in Sources */,
 			);
