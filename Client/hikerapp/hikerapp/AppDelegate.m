@@ -11,6 +11,8 @@
 #import "HAHomeScreenVIewController.h"
 #import "HASignupInfoViewController.h"
 #import "HALeftMenuViewController.h"
+#import <Fabric/Fabric.h>
+#import <DigitsKit/DigitsKit.h>
 
 @interface AppDelegate ()
 
@@ -20,6 +22,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [Fabric with:@[[Digits class]]];
     [self setUpRootVC];
     return YES;
 }
