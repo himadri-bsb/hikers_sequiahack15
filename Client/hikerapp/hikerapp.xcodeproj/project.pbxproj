@@ -22,6 +22,10 @@
 		52EDFC611B91BA5C004C65DB /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EDFC5C1B91BA5C004C65DB /* RECommonFunctions.m */; };
 		52EDFC621B91BA5C004C65DB /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EDFC5E1B91BA5C004C65DB /* RESideMenu.m */; };
 		52EDFC631B91BA5C004C65DB /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EDFC601B91BA5C004C65DB /* UIViewController+RESideMenu.m */; };
+		52EDFCB21B91CDEE004C65DB /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EDFCAE1B91CDEE004C65DB /* Fabric.framework */; };
+		52EDFCB31B91CDEE004C65DB /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EDFCAF1B91CDEE004C65DB /* DigitsKit.framework */; };
+		52EDFCB41B91CDEE004C65DB /* DigitsKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52EDFCB01B91CDEE004C65DB /* DigitsKitResources.bundle */; };
+		52EDFCB51B91CDEE004C65DB /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EDFCB11B91CDEE004C65DB /* TwitterCore.framework */; };
 		D34C728D1B91BF8800C2586F /* HAHomeScreenVIewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C728B1B91BF8800C2586F /* HAHomeScreenVIewController.m */; };
 		D34C728E1B91BF8800C2586F /* HAHomeScreenVIewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34C728C1B91BF8800C2586F /* HAHomeScreenVIewController.xib */; };
 		D34C729D1B91C82000C2586F /* HALeftMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C729B1B91C82000C2586F /* HALeftMenuTableViewController.m */; };
@@ -63,6 +67,10 @@
 		52EDFC5E1B91BA5C004C65DB /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenu.m; sourceTree = "<group>"; };
 		52EDFC5F1B91BA5C004C65DB /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
 		52EDFC601B91BA5C004C65DB /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
+		52EDFCAE1B91CDEE004C65DB /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
+		52EDFCAF1B91CDEE004C65DB /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = SOURCE_ROOT; };
+		52EDFCB01B91CDEE004C65DB /* DigitsKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = DigitsKitResources.bundle; path = DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle; sourceTree = SOURCE_ROOT; };
+		52EDFCB11B91CDEE004C65DB /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = SOURCE_ROOT; };
 		D34C728A1B91BF8800C2586F /* HAHomeScreenVIewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAHomeScreenVIewController.h; sourceTree = "<group>"; };
 		D34C728B1B91BF8800C2586F /* HAHomeScreenVIewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAHomeScreenVIewController.m; sourceTree = "<group>"; };
 		D34C728C1B91BF8800C2586F /* HAHomeScreenVIewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HAHomeScreenVIewController.xib; sourceTree = "<group>"; };
@@ -79,8 +87,11 @@
 				26B446911B91C61D0066F83C /* CoreLocation.framework in Frameworks */,
 				26B4468F1B91C6140066F83C /* CoreBluetooth.framework in Frameworks */,
 				26B4468D1B91C60F0066F83C /* CoreData.framework in Frameworks */,
+				52EDFCB31B91CDEE004C65DB /* DigitsKit.framework in Frameworks */,
 				26B4468B1B91C6040066F83C /* SystemConfiguration.framework in Frameworks */,
+				52EDFCB51B91CDEE004C65DB /* TwitterCore.framework in Frameworks */,
 				26B446891B91C5D70066F83C /* Beaconstac.framework in Frameworks */,
+				52EDFCB21B91CDEE004C65DB /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +150,10 @@
 				01AB3B0B1B91C1CD004625F9 /* HASignupInfoViewController.m */,
 				26EEF7C11B91AEB500132A92 /* Images.xcassets */,
 				26EEF7C31B91AEB500132A92 /* LaunchScreen.xib */,
+				52EDFCAE1B91CDEE004C65DB /* Fabric.framework */,
+				52EDFCAF1B91CDEE004C65DB /* DigitsKit.framework */,
+				52EDFCB01B91CDEE004C65DB /* DigitsKitResources.bundle */,
+				52EDFCB11B91CDEE004C65DB /* TwitterCore.framework */,
 				52EDFC5A1B91B9A0004C65DB /* SideMenu */,
 				26EEF7B41B91AEB500132A92 /* Supporting Files */,
 			);
@@ -196,6 +211,7 @@
 				26EEF7AD1B91AEB500132A92 /* Sources */,
 				26EEF7AE1B91AEB500132A92 /* Frameworks */,
 				26EEF7AF1B91AEB500132A92 /* Resources */,
+				52EDFCAD1B91CDCB004C65DB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -266,6 +282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52EDFCB41B91CDEE004C65DB /* DigitsKitResources.bundle in Resources */,
 				D34C728E1B91BF8800C2586F /* HAHomeScreenVIewController.xib in Resources */,
 				26EEF7C51B91AEB500132A92 /* LaunchScreen.xib in Resources */,
 				26B446951B91C80C0066F83C /* BeaconstacData.bundle in Resources */,
@@ -282,6 +299,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		52EDFCAD1B91CDCB004C65DB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run a158ed92adc33849add174bc6f7fb20fc8ba2fa6 60ebe5f7c0afae81320b2d59dccc1285dfe88b14eb75d9e775447f0487921899";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		26EEF7AD1B91AEB500132A92 /* Sources */ = {
@@ -416,6 +449,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/hikerapp/BeaconstacSDK",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = hikerapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -430,6 +464,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/hikerapp/BeaconstacSDK",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = hikerapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
