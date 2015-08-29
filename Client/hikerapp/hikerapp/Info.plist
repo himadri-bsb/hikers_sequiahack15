@@ -32,5 +32,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>To detect beacons</string>
 </dict>
 </plist>

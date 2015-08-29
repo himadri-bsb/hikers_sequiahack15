@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		01AB3B0C1B91C1CD004625F9 /* HASignupInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AB3B0B1B91C1CD004625F9 /* HASignupInfoViewController.m */; };
+		26B446891B91C5D70066F83C /* Beaconstac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B446881B91C5D70066F83C /* Beaconstac.framework */; };
+		26B4468B1B91C6040066F83C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B4468A1B91C6040066F83C /* SystemConfiguration.framework */; };
+		26B4468D1B91C60F0066F83C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B4468C1B91C60F0066F83C /* CoreData.framework */; };
+		26B4468F1B91C6140066F83C /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B4468E1B91C6140066F83C /* CoreBluetooth.framework */; };
+		26B446911B91C61D0066F83C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B446901B91C61D0066F83C /* CoreLocation.framework */; };
+		26B446951B91C80C0066F83C /* BeaconstacData.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26B446941B91C80C0066F83C /* BeaconstacData.bundle */; };
 		26EEF7B71B91AEB500132A92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEF7B61B91AEB500132A92 /* main.m */; };
 		26EEF7BA1B91AEB500132A92 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEF7B91B91AEB500132A92 /* AppDelegate.m */; };
 		26EEF7C21B91AEB500132A92 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26EEF7C11B91AEB500132A92 /* Images.xcassets */; };
@@ -33,6 +39,12 @@
 /* Begin PBXFileReference section */
 		01AB3B0A1B91C1CD004625F9 /* HASignupInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HASignupInfoViewController.h; sourceTree = "<group>"; };
 		01AB3B0B1B91C1CD004625F9 /* HASignupInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HASignupInfoViewController.m; sourceTree = "<group>"; };
+		26B446881B91C5D70066F83C /* Beaconstac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Beaconstac.framework; sourceTree = "<group>"; };
+		26B4468A1B91C6040066F83C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		26B4468C1B91C60F0066F83C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		26B4468E1B91C6140066F83C /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		26B446901B91C61D0066F83C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		26B446941B91C80C0066F83C /* BeaconstacData.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BeaconstacData.bundle; path = BeaconstacSDK/Beaconstac.framework/Versions/1.0/Resources/BeaconstacData.bundle; sourceTree = "<group>"; };
 		26EEF7B11B91AEB500132A92 /* hikerapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hikerapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26EEF7B51B91AEB500132A92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26EEF7B61B91AEB500132A92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -59,6 +71,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26B446911B91C61D0066F83C /* CoreLocation.framework in Frameworks */,
+				26B4468F1B91C6140066F83C /* CoreBluetooth.framework in Frameworks */,
+				26B4468D1B91C60F0066F83C /* CoreData.framework in Frameworks */,
+				26B4468B1B91C6040066F83C /* SystemConfiguration.framework in Frameworks */,
+				26B446891B91C5D70066F83C /* Beaconstac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,10 +89,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26B446871B91C5D70066F83C /* BeaconstacSDK */ = {
+			isa = PBXGroup;
+			children = (
+				26B446881B91C5D70066F83C /* Beaconstac.framework */,
+			);
+			path = BeaconstacSDK;
+			sourceTree = "<group>";
+		};
 		26EEF7A81B91AEB500132A92 = {
 			isa = PBXGroup;
 			children = (
 				26EEF7B31B91AEB500132A92 /* hikerapp */,
+				26B446901B91C61D0066F83C /* CoreLocation.framework */,
+				26B4468E1B91C6140066F83C /* CoreBluetooth.framework */,
+				26B4468C1B91C60F0066F83C /* CoreData.framework */,
+				26B4468A1B91C6040066F83C /* SystemConfiguration.framework */,
 				26EEF7CD1B91AEB500132A92 /* hikerappTests */,
 				26EEF7B21B91AEB500132A92 /* Products */,
 			);
@@ -111,6 +140,8 @@
 		26EEF7B41B91AEB500132A92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				26B446941B91C80C0066F83C /* BeaconstacData.bundle */,
+				26B446871B91C5D70066F83C /* BeaconstacSDK */,
 				26EEF7B51B91AEB500132A92 /* Info.plist */,
 				26EEF7B61B91AEB500132A92 /* main.m */,
 			);
@@ -229,6 +260,7 @@
 			files = (
 				D34C728E1B91BF8800C2586F /* HAHomeScreenVIewController.xib in Resources */,
 				26EEF7C51B91AEB500132A92 /* LaunchScreen.xib in Resources */,
+				26B446951B91C80C0066F83C /* BeaconstacData.bundle in Resources */,
 				26EEF7C21B91AEB500132A92 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,6 +403,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/hikerapp/BeaconstacSDK",
+				);
 				INFOPLIST_FILE = hikerapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -381,6 +417,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/hikerapp/BeaconstacSDK",
+				);
 				INFOPLIST_FILE = hikerapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
