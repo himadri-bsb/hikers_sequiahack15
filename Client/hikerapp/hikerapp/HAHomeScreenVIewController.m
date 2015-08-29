@@ -13,11 +13,13 @@
 #import "HACommonDefs.h"
 #import "HABuddyTableViewCell.h"
 
-@interface HAHomeScreenVIewController () <BeaconstacDelegate>
+@interface HAHomeScreenVIewController () <BeaconstacDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, strong) Beaconstac *beaconstacInstance;
 
 @property (weak, nonatomic) IBOutlet UITableView *tablevIew;
+
+@property (nonatomic, retain) HABuddyTableViewCell *tappedCell;
 @end
 
 @implementation HAHomeScreenVIewController
@@ -36,14 +38,41 @@
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(didTapMenuButton:)];
     self.navigationItem.leftBarButtonItem = leftButton;
     
+    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(didTapRefreshButton:)];
+
+    self.navigationItem.rightBarButtonItem = refreshButton;
+    
     [self.tablevIew registerNib:[UINib nibWithNibName:@"HABuddyTableViewCell" bundle:nil] forCellReuseIdentifier:@"buddyCell"];
     
     self.tablevIew.separatorInset = UIEdgeInsetsMake(0, 75, 0, 0);
     self.tablevIew.tableFooterView = [[UIView alloc] init];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:51.0f/255.0f green:150.0f/255.0f blue:174.0f/255.0f alpha:0.8f];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLongPressForCell:) name:kNotification_LongPressTableCell object:nil];
+}
+
+- (void)handleLongPressForCell:(NSNotification  *)notification {
+    self.tappedCell = notification.object;
+//    if ([self.tappedCell.locationLabel.text isEqualToString:UNKNOWN_LOCATION]) {
+        if (!self.tappedCell.isObserving) {
+            UIActionSheet *actionsheet = [[UIActionSheet alloc] initWithTitle:@"Notify?" delegate:self cancelButtonTitle:@"No" destructiveButtonTitle:nil otherButtonTitles:@"Yes", nil];
+            [actionsheet showInView:self.view];
+        }
+        else {
+            UIActionSheet *actionsheet = [[UIActionSheet alloc] initWithTitle:@"Remove Observer?" delegate:self cancelButtonTitle:@"No" destructiveButtonTitle:nil otherButtonTitles:@"Yes", nil];
+            [actionsheet showInView:self.view];
+        }
+//    }
 }
 
 - (void)didTapMenuButton:(id)sender {
     [self presentLeftMenuViewController:nil];
+}
+
+- (void)didTapRefreshButton:(id)sender {
+    //Refresh code
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,11 +120,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HABuddyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buddyCell"];
-//    if (!cell) {
-//        cell = [[HABuddyTableViewCell alloc] initWithStyle:UITableViewCellStyle reuseIdentifier:@"buddyCell"];
-//        cell.backgroundColor = [UIColor clearColor];
-//        cell.textLabel.textColor = [UIColor whiteColor];
-//    }
     return cell;
 }
 
@@ -114,6 +138,22 @@
     }
 }
 
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != [actionSheet cancelButtonIndex]) {
+        BOOL shouldSetTrigger = NO;
+        if (self.tappedCell.isObserving) {
+            self.tappedCell.isObserving = NO;
+            self.tappedCell.notifIndicatorView.hidden = YES;
+            shouldSetTrigger = NO;
+        }
+        else {
+            self.tappedCell.isObserving = YES;
+            self.tappedCell.notifIndicatorView.hidden = NO;
+            shouldSetTrigger = YES;
+        }
+    }
+    // Decide based on the shouldSetTrigger
+}
 
 
 
