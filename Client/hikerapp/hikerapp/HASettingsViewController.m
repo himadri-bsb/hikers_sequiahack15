@@ -38,6 +38,13 @@
 - (void)setupUI {
     
     self.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:51.0f/255.0f green:150.0f/255.0f blue:174.0f/255.0f alpha:0.8f]];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
+    
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(didTapMenuButton:)];
+    self.navigationItem.leftBarButtonItem = leftButton;
+    
     self.title = @"Settings";
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
@@ -131,6 +138,10 @@
     if (sender.tag == 2001) {
         // Don't allow tracking
     }
+}
+
+- (void)didTapMenuButton:(id)sender {
+    [self presentLeftMenuViewController:nil];
 }
 
 @end

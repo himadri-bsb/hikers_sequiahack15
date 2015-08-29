@@ -11,7 +11,6 @@
 #import "HAHomeScreenVIewController.h"
 #import "HASignupInfoViewController.h"
 #import "HALeftMenuViewController.h"
-#import "HASettingsViewController.h"
 
 @interface AppDelegate ()
 
@@ -41,9 +40,8 @@
         slideMenu.contentViewInPortraitOffsetCenterX = -50;
         self.window.rootViewController = slideMenu;
     } else {
-//        HASignupInfoViewController *signUpViewController = [[HASignupInfoViewController alloc] init];
-//        signUpViewController.isSignUpMode = YES;
-        HASettingsViewController *signUpViewController = [[HASettingsViewController alloc] init];
+        HASignupInfoViewController *signUpViewController = [[HASignupInfoViewController alloc] init];
+        signUpViewController.isSignUpMode = YES;
         UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:signUpViewController];
         self.window.rootViewController = navigationVC;
     }
@@ -62,7 +60,7 @@
 }
 
 - (BOOL)signedIn {
-    return NO;
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

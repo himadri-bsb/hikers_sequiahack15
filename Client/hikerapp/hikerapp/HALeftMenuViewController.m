@@ -7,6 +7,8 @@
 //
 
 #import "HALeftMenuViewController.h"
+#import "HAHomeScreenVIewController.h"
+#import "HASettingsViewController.h"
 
 @interface HALeftMenuViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -56,13 +58,22 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        
+        [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[[HAHomeScreenVIewController alloc] initWithNibName:@"HAHomeScreenVIewController" bundle:[NSBundle mainBundle]]]
+                                                     animated:YES];
+        [self.sideMenuViewController hideMenuViewController];
     }
     else if(indexPath.row == 1) {
-        
+        [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[[HASettingsViewController alloc] init]]
+                                                     animated:YES];
+        [self.sideMenuViewController hideMenuViewController];
     }
     else {
-        
+        [self.sideMenuViewController hideMenuViewController];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@""
+                                                            message:@"Do you want to logout?" delegate:self
+                                                  cancelButtonTitle:@"NO"
+                                                  otherButtonTitles:@"YES", nil];
+        [alertView show];
     }
 }
 
