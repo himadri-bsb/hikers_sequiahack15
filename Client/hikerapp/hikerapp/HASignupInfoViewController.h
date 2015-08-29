@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <DigitsKit/DigitsKit.h>
 
-@interface HASignupInfoViewController : UIViewController
+
+@interface HASignupInfoViewController : UIViewController <DGTCompletionViewController>
 
 @property (nonatomic, assign) BOOL isSignUpMode;
 

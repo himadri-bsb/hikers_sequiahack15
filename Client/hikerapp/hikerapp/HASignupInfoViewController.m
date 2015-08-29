@@ -7,6 +7,8 @@
 //
 
 #import "HASignupInfoViewController.h"
+#import <DigitsKit/DigitsKit.h>
+
 
 @interface HASignupInfoViewController ()<UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -238,6 +240,10 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
+}
+
+-(void)digitsAuthenticationFinishedWithSession:(DGTSession *)session error:(NSError *)error {
+
 }
 
 @end
