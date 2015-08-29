@@ -38,6 +38,7 @@
 		52EDFCD21B91CFB1004C65DB /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EDFCC91B91CFB1004C65DB /* AFURLSessionManager.m */; };
 		52EDFCD41B91CFED004C65DB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EDFCD31B91CFED004C65DB /* Security.framework */; };
 		52EDFCD61B91CFF3004C65DB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EDFCD51B91CFF3004C65DB /* MobileCoreServices.framework */; };
+		52EDFCE51B91F89D004C65DB /* HASignUpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EDFCE41B91F89D004C65DB /* HASignUpManager.m */; };
 		D34C728D1B91BF8800C2586F /* HAHomeScreenVIewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C728B1B91BF8800C2586F /* HAHomeScreenVIewController.m */; };
 		D34C728E1B91BF8800C2586F /* HAHomeScreenVIewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34C728C1B91BF8800C2586F /* HAHomeScreenVIewController.xib */; };
 		D34C72A21B91DA0100C2586F /* HABuddyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C72A01B91DA0100C2586F /* HABuddyTableViewCell.m */; };
@@ -110,6 +111,8 @@
 		52EDFCD31B91CFED004C65DB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		52EDFCD51B91CFF3004C65DB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		52EDFCD71B91D184004C65DB /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		52EDFCE31B91F89D004C65DB /* HASignUpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HASignUpManager.h; sourceTree = "<group>"; };
+		52EDFCE41B91F89D004C65DB /* HASignUpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HASignUpManager.m; sourceTree = "<group>"; };
 		D34C728A1B91BF8800C2586F /* HAHomeScreenVIewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAHomeScreenVIewController.h; sourceTree = "<group>"; };
 		D34C728B1B91BF8800C2586F /* HAHomeScreenVIewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAHomeScreenVIewController.m; sourceTree = "<group>"; };
 		D34C728C1B91BF8800C2586F /* HAHomeScreenVIewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HAHomeScreenVIewController.xib; sourceTree = "<group>"; };
@@ -210,6 +213,7 @@
 				D34C72A11B91DA0100C2586F /* HABuddyTableViewCell.xib */,
 				26EEF7C11B91AEB500132A92 /* Images.xcassets */,
 				26EEF7C31B91AEB500132A92 /* LaunchScreen.xib */,
+				52EDFCE21B91F881004C65DB /* SignUp */,
 				52EDFCB61B91CF8E004C65DB /* Network */,
 				52EDFCAE1B91CDEE004C65DB /* Fabric.framework */,
 				52EDFCAF1B91CDEE004C65DB /* DigitsKit.framework */,
@@ -287,6 +291,16 @@
 				52EDFCC91B91CFB1004C65DB /* AFURLSessionManager.m */,
 			);
 			name = Network;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		52EDFCE21B91F881004C65DB /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				52EDFCE31B91F89D004C65DB /* HASignUpManager.h */,
+				52EDFCE41B91F89D004C65DB /* HASignUpManager.m */,
+			);
+			name = SignUp;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -425,6 +439,7 @@
 				52EDFCCE1B91CFB1004C65DB /* AFSecurityPolicy.m in Sources */,
 				D34C72A71B91F54F00C2586F /* HALeftMenuViewController.m in Sources */,
 				52EDFC611B91BA5C004C65DB /* RECommonFunctions.m in Sources */,
+				52EDFCE51B91F89D004C65DB /* HASignUpManager.m in Sources */,
 				52EDFCD01B91CFB1004C65DB /* AFURLRequestSerialization.m in Sources */,
 				52EDFCCD1B91CFB1004C65DB /* AFNetworkReachabilityManager.m in Sources */,
 				D34C72A21B91DA0100C2586F /* HABuddyTableViewCell.m in Sources */,
