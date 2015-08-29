@@ -15,6 +15,7 @@
 @property (nonatomic, strong) UITextField *nameTextField;
 @property (nonatomic, strong) UIButton *maleButton;
 @property (nonatomic, strong) UIButton *femaleButton;
+@property (nonatomic, strong) UIButton *submitButton;
 
 @end
 
@@ -39,8 +40,6 @@
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithWhite:0.0 alpha:0.3]];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit   " style:UIBarButtonItemStyleDone target:self action:@selector(nextButtonAction:)];
 }
 
 - (void)setupUI {
@@ -72,7 +71,6 @@
     self.nameTextField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 14.0f, 40.0f)];
     self.nameTextField.leftViewMode = UITextFieldViewModeAlways;
     self.nameTextField.delegate = self;
-    [self.nameTextField becomeFirstResponder];
     NSAttributedString *placeholderStr = [[NSAttributedString alloc] initWithString:@"Name"
                                                                attributes:@{NSForegroundColorAttributeName:[UIColor lightGrayColor]}];
     self.nameTextField.attributedPlaceholder = placeholderStr;
@@ -89,6 +87,13 @@
     [self.femaleButton setImage:[UIImage imageNamed:@"female"] forState:UIControlStateNormal];
     [self.femaleButton addTarget:self action:@selector(femaleButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.femaleButton];
+    
+    self.submitButton = [[UIButton alloc] initWithFrame:CGRectZero];
+    self.submitButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.submitButton setBackgroundColor:[UIColor colorWithRed:51.0f/255.0f green:150.0f/255.0f blue:174.0f/255.0f alpha:0.8f]];
+    [self.submitButton setTitle:@"Submit" forState:UIControlStateNormal];
+    [self.submitButton addTarget:self action:@selector(submitButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.submitButton];
 }
 
 - (void)setLayoutConstraints {
@@ -109,11 +114,11 @@
                                                          attribute:NSLayoutAttributeCenterX
                                                          multiplier:1.0f constant:0.0f]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.avatarImageView
-                                                         attribute:NSLayoutAttributeTop
+                                                         attribute:NSLayoutAttributeBottom
                                                          relatedBy:NSLayoutRelationEqual
-                                                            toItem:self.view
+                                                            toItem:self.nameTextField
                                                          attribute:NSLayoutAttributeTop
-                                                         multiplier:1.0f constant:100.0f]];
+                                                         multiplier:1.0f constant:-40.0f]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[view(==width)]"
                                                                       options:0
                                                                       metrics:@{@"width":@(120.f)}
@@ -130,11 +135,11 @@
                                                          attribute:NSLayoutAttributeCenterX
                                                          multiplier:1.0f constant:0.0f]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.nameTextField
-                                                          attribute:NSLayoutAttributeTop
+                                                          attribute:NSLayoutAttributeCenterY
                                                           relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.avatarImageView
-                                                          attribute:NSLayoutAttributeBottom
-                                                         multiplier:1.0f constant:40.0f]];
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeCenterY
+                                                         multiplier:1.0f constant:-10.0f]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[view(==width)]"
                                                                      options:0
                                                                       metrics:@{@"width":@(200.0f)}
@@ -155,7 +160,7 @@
                                                           relatedBy:NSLayoutRelationEqual
                                                              toItem:self.nameTextField
                                                           attribute:NSLayoutAttributeBottom
-                                                         multiplier:1.0f constant:15.0f]];
+                                                         multiplier:1.0f constant:40.0f]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[view(==60)]"
                                                                       options:0
                                                                       metrics:nil views:@{@"view":self.maleButton}]];
@@ -175,19 +180,28 @@
                                                           relatedBy:NSLayoutRelationEqual
                                                              toItem:self.nameTextField
                                                           attribute:NSLayoutAttributeBottom
-                                                         multiplier:1.0f constant:15.0f]];
+                                                         multiplier:1.0f constant:40.0f]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[view(==60)]"
                                                                       options:0
                                                                       metrics:nil views:@{@"view":self.femaleButton}]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[view(==60)]"
                                                                       options:0
                                                                       metrics:nil views:@{@"view":self.femaleButton}]];
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|"
+                                                                     options:0
+                                                                     metrics:nil
+                                                                        views:@{@"view":self.submitButton}]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[view(==60.0)]|"
+                                                                      options:0
+                                                                      metrics:nil
+                                                                        views:@{@"view":self.submitButton}]];
 }
 
 #pragma mark - Button actions
 
-- (void)nextButtonAction:(id)sender {
-    
+- (void)submitButtonAction:(id)sender {
+    //API call
 }
 
 - (void)maleButtonAction:(id)sender {
@@ -212,12 +226,15 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
     self.avatarImageView.image = image;
     [picker dismissViewControllerAnimated:YES completion:NULL];
-    [self.nameTextField becomeFirstResponder];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:NULL];
-    [self.nameTextField becomeFirstResponder];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end
