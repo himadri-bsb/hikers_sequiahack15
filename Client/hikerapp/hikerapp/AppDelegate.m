@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "RESideMenu.h"
+#import "HAHomeScreenVIewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,19 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [self setUpRootVC];
+    return YES;
+}
+
+
+- (void)setUpRootVC {
+    HAHomeScreenVIewController *homeScreen = [[HAHomeScreenVIewController alloc] initWithNibName:@"HAHomeScreenVIewController" bundle:nil];
+    UINavigationController *navigatioNVC = [[UINavigationController alloc] initWithRootViewController:homeScreen];
+
+    self.window.rootViewController = [[RESideMenu alloc] initWithContentViewController:navigatioNVC leftMenuViewController:nil rightMenuViewController:nil];
+}
+
+- (BOOL)signedIn {
     return YES;
 }
 
