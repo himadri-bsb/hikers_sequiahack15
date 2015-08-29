@@ -123,18 +123,13 @@
         NSLog(@"Exited on %@",LOCATION_DESK);
     }
 
+    [currentUser.parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(error) {
+            NSLog(@"beaconstac: exitedBeacon: ERROR on saving location, error = %@",error);
+        }
+        
+    }];
 
-
-    if(![currentUser.location isEqualToString:UNKNOWN_LOCATION]) {
-        currentUser.location = UNKNOWN_LOCATION;
-
-        [currentUser.parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if(error) {
-                NSLog(@"beaconstac: exitedBeacon: ERROR on saving location, error = %@",error);
-            }
-
-        }];
-    }
 }
 
 // Tells the delegate when the device has entered a beacon region
