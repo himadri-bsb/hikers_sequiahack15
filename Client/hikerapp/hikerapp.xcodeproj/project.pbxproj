@@ -56,6 +56,9 @@
 		52EDFD171B922027004C65DB /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EDFD051B922027004C65DB /* UIImageView+HighlightedWebCache.m */; };
 		52EDFD181B922027004C65DB /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EDFD071B922027004C65DB /* UIImageView+WebCache.m */; };
 		52EDFD191B922027004C65DB /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EDFD091B922027004C65DB /* UIView+WebCacheOperation.m */; };
+		52EDFD1F1B922117004C65DB /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EDFD1E1B922117004C65DB /* UIImage+Resize.m */; };
+		52EDFD221B922130004C65DB /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EDFD211B922130004C65DB /* UIImage+RoundedCorner.m */; };
+		52EDFD251B922144004C65DB /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EDFD241B922144004C65DB /* UIImage+Alpha.m */; };
 		D34C728D1B91BF8800C2586F /* HAHomeScreenVIewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C728B1B91BF8800C2586F /* HAHomeScreenVIewController.m */; };
 		D34C728E1B91BF8800C2586F /* HAHomeScreenVIewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34C728C1B91BF8800C2586F /* HAHomeScreenVIewController.xib */; };
 		D34C72A21B91DA0100C2586F /* HABuddyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C72A01B91DA0100C2586F /* HABuddyTableViewCell.m */; };
@@ -165,6 +168,12 @@
 		52EDFD071B922027004C65DB /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		52EDFD081B922027004C65DB /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		52EDFD091B922027004C65DB /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		52EDFD1D1B922117004C65DB /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		52EDFD1E1B922117004C65DB /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		52EDFD201B922130004C65DB /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		52EDFD211B922130004C65DB /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		52EDFD231B922144004C65DB /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		52EDFD241B922144004C65DB /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
 		D34C728A1B91BF8800C2586F /* HAHomeScreenVIewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAHomeScreenVIewController.h; sourceTree = "<group>"; };
 		D34C728B1B91BF8800C2586F /* HAHomeScreenVIewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAHomeScreenVIewController.m; sourceTree = "<group>"; };
 		D34C728C1B91BF8800C2586F /* HAHomeScreenVIewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HAHomeScreenVIewController.xib; sourceTree = "<group>"; };
@@ -249,6 +258,7 @@
 		26EEF7B31B91AEB500132A92 /* hikerapp */ = {
 			isa = PBXGroup;
 			children = (
+				52EDFD1C1B9220F2004C65DB /* Image Resize */,
 				52EDFCE81B922012004C65DB /* SDWebImage */,
 				260A95991B91D30300DE286A /* Model */,
 				26EEF7B81B91AEB500132A92 /* AppDelegate.h */,
@@ -399,6 +409,19 @@
 			name = SDWebImage;
 			sourceTree = "<group>";
 		};
+		52EDFD1C1B9220F2004C65DB /* Image Resize */ = {
+			isa = PBXGroup;
+			children = (
+				52EDFD201B922130004C65DB /* UIImage+RoundedCorner.h */,
+				52EDFD211B922130004C65DB /* UIImage+RoundedCorner.m */,
+				52EDFD1D1B922117004C65DB /* UIImage+Resize.h */,
+				52EDFD1E1B922117004C65DB /* UIImage+Resize.m */,
+				52EDFD231B922144004C65DB /* UIImage+Alpha.h */,
+				52EDFD241B922144004C65DB /* UIImage+Alpha.m */,
+			);
+			name = "Image Resize";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -525,6 +548,7 @@
 				52EDFD0A1B922027004C65DB /* MKAnnotationView+WebCache.m in Sources */,
 				52EDFCCF1B91CFB1004C65DB /* AFURLConnectionOperation.m in Sources */,
 				52EDFCCA1B91CFB1004C65DB /* AFHTTPRequestOperation.m in Sources */,
+				52EDFD1F1B922117004C65DB /* UIImage+Resize.m in Sources */,
 				26EEF7BA1B91AEB500132A92 /* AppDelegate.m in Sources */,
 				52EDFCCB1B91CFB1004C65DB /* AFHTTPRequestOperationManager.m in Sources */,
 				26EEF7B71B91AEB500132A92 /* main.m in Sources */,
@@ -547,12 +571,14 @@
 				52EDFC611B91BA5C004C65DB /* RECommonFunctions.m in Sources */,
 				52EDFD121B922027004C65DB /* SDWebImagePrefetcher.m in Sources */,
 				52EDFD161B922027004C65DB /* UIImage+WebP.m in Sources */,
+				52EDFD251B922144004C65DB /* UIImage+Alpha.m in Sources */,
 				52EDFD111B922027004C65DB /* SDWebImageManager.m in Sources */,
 				52EDFD0B1B922027004C65DB /* NSData+ImageContentType.m in Sources */,
 				52EDFCE51B91F89D004C65DB /* HASignUpManager.m in Sources */,
 				52EDFCD01B91CFB1004C65DB /* AFURLRequestSerialization.m in Sources */,
 				52EDFCCD1B91CFB1004C65DB /* AFNetworkReachabilityManager.m in Sources */,
 				D34C72A21B91DA0100C2586F /* HABuddyTableViewCell.m in Sources */,
+				52EDFD221B922130004C65DB /* UIImage+RoundedCorner.m in Sources */,
 				52EDFCD11B91CFB1004C65DB /* AFURLResponseSerialization.m in Sources */,
 				52EDFD191B922027004C65DB /* UIView+WebCacheOperation.m in Sources */,
 				52EDFD171B922027004C65DB /* UIImageView+HighlightedWebCache.m in Sources */,
