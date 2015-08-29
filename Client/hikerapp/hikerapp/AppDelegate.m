@@ -10,6 +10,7 @@
 #import "RESideMenu.h"
 #import "HAHomeScreenVIewController.h"
 #import "HASignupInfoViewController.h"
+#import "HALeftMenuTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -31,7 +32,10 @@
         HAHomeScreenVIewController *homeScreen = [[HAHomeScreenVIewController alloc] initWithNibName:@"HAHomeScreenVIewController" bundle:nil];
         UINavigationController *navigatioNVC = [[UINavigationController alloc] initWithRootViewController:homeScreen];
         
-        self.window.rootViewController = [[RESideMenu alloc] initWithContentViewController:navigatioNVC leftMenuViewController:nil rightMenuViewController:nil];
+        
+        HALeftMenuTableViewController *leftMenu = [[HALeftMenuTableViewController alloc] initWithNibName:@"HALeftMenuTableViewController" bundle:nil];
+        
+        self.window.rootViewController = [[RESideMenu alloc] initWithContentViewController:navigatioNVC leftMenuViewController:leftMenu rightMenuViewController:nil];
     } else {
         HASignupInfoViewController *signUpViewController = [[HASignupInfoViewController alloc] init];
         UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:signUpViewController];
@@ -41,7 +45,7 @@
 }
 
 - (BOOL)signedIn {
-    return NO;
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
