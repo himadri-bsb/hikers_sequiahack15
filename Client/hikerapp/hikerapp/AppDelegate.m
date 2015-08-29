@@ -10,7 +10,7 @@
 #import "RESideMenu.h"
 #import "HAHomeScreenVIewController.h"
 #import "HASignupInfoViewController.h"
-#import "HALeftMenuTableViewController.h"
+#import "HALeftMenuViewController.h"
 
 @interface AppDelegate ()
 
@@ -33,7 +33,7 @@
         UINavigationController *navigatioNVC = [[UINavigationController alloc] initWithRootViewController:homeScreen];
         
         
-        HALeftMenuTableViewController *leftMenu = [[HALeftMenuTableViewController alloc] initWithNibName:@"HALeftMenuTableViewController" bundle:nil];
+        HALeftMenuViewController *leftMenu = [[HALeftMenuViewController alloc] initWithNibName:@"HALeftMenuViewController" bundle:nil];
         
         RESideMenu *slideMenu = [[RESideMenu alloc] initWithContentViewController:navigatioNVC leftMenuViewController:leftMenu rightMenuViewController:nil];
         slideMenu.backgroundImage = [UIImage imageNamed:@"signup_bg"];
