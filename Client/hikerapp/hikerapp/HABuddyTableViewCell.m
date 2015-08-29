@@ -12,6 +12,9 @@
 
 - (void)awakeFromNib {
     self.avatarImageView.layer.cornerRadius = 25.0f;
+    self.notifIndicatorView = [[UIView alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width-20, 0, 20, 75)];
+    [self.notifIndicatorView setBackgroundColor:[UIColor orangeColor]];
+    [self.contentView addSubview:self.notifIndicatorView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
