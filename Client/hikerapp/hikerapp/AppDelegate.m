@@ -153,12 +153,12 @@
     }
 }
 
-+ (AppDelegate *)sharedAppDelegate
-{
++ (AppDelegate *)sharedAppDelegate {
     return  (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 - (void)handleSignUpComplete {
+    [self registerForRemoteNotifications];
     [self showHomeScreen];
 }
 
