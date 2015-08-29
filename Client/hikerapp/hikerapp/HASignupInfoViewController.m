@@ -228,6 +228,7 @@
                 currentUser.phoneNumber = self.session.phoneNumber;
                 currentUser.userName = self.nameTextField.text;
                 currentUser.userID = self.session.userID;
+                currentUser.image = self.avatarImageView.image;
                 
                 [currentUser.parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     dispatch_async(dispatch_get_main_queue(), ^ {
@@ -256,7 +257,7 @@
                                                         currentUser.phoneNumber = self.session.phoneNumber;
                                                         currentUser.userName = self.nameTextField.text;
                                                         currentUser.userID = self.session.userID;
-                                                        
+                                                        currentUser.image = self.avatarImageView.image;
                                                         
                                                         [currentUser.parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                                                             dispatch_async(dispatch_get_main_queue(), ^ {

@@ -94,6 +94,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HABuddyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buddyCell"];
+    HAUser *user = [self.usersArray objectAtIndex:indexPath.row];
+    cell.avatarImageView.image = user.image;
+    cell.nameLabel.text = user.userName;
+    cell.locationLabel.text = user.location;
     return cell;
 }
 
@@ -139,7 +143,13 @@
             if (!error) {
                 // The find succeeded. The first 100 objects are available in objects
                 //NSLog(@"%@", objects);
-                self.usersArray = [NSMutableArray arrayWithArray:objects];
+                NSMutableArray *usersArray = [[NSMutableArray alloc] initWithCapacity:5];
+                for (PFUser *parseUser in objects) {
+                    HAUser *user = [[HAUser alloc] initWithPFUser:parseUser];
+                    [usersArray addObject:user];
+                    
+                }
+                self.usersArray = usersArray;
                 [self.tablevIew reloadData];
             } else {
                 // Log details of the failure
