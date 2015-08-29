@@ -11,6 +11,7 @@
 #import "HAHomeScreenVIewController.h"
 #import "HASignupInfoViewController.h"
 #import "HALeftMenuViewController.h"
+#import "HASettingsViewController.h"
 
 @interface AppDelegate ()
 
@@ -59,7 +60,7 @@
 }
 
 - (BOOL)signedIn {
-    return YES;
+    return NO;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
