@@ -1,5 +1,5 @@
 //
-//  HALeftMenuTableViewController.h
+//  HALeftMenuViewController.h
 //  hikerapp
 //
 //  Created by Ravindra Shetty on 29/08/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HALeftMenuTableViewController : UITableViewController
+@interface HALeftMenuViewController : UIViewController
 
 @end

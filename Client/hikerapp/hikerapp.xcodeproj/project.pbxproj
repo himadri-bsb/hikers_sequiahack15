@@ -40,10 +40,10 @@
 		52EDFCD61B91CFF3004C65DB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EDFCD51B91CFF3004C65DB /* MobileCoreServices.framework */; };
 		D34C728D1B91BF8800C2586F /* HAHomeScreenVIewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C728B1B91BF8800C2586F /* HAHomeScreenVIewController.m */; };
 		D34C728E1B91BF8800C2586F /* HAHomeScreenVIewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34C728C1B91BF8800C2586F /* HAHomeScreenVIewController.xib */; };
-		D34C729D1B91C82000C2586F /* HALeftMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C729B1B91C82000C2586F /* HALeftMenuTableViewController.m */; };
-		D34C729E1B91C82000C2586F /* HALeftMenuTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34C729C1B91C82000C2586F /* HALeftMenuTableViewController.xib */; };
 		D34C72A21B91DA0100C2586F /* HABuddyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C72A01B91DA0100C2586F /* HABuddyTableViewCell.m */; };
 		D34C72A31B91DA0100C2586F /* HABuddyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34C72A11B91DA0100C2586F /* HABuddyTableViewCell.xib */; };
+		D34C72A71B91F54F00C2586F /* HALeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C72A51B91F54F00C2586F /* HALeftMenuViewController.m */; };
+		D34C72A81B91F54F00C2586F /* HALeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34C72A61B91F54F00C2586F /* HALeftMenuViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,12 +113,12 @@
 		D34C728A1B91BF8800C2586F /* HAHomeScreenVIewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAHomeScreenVIewController.h; sourceTree = "<group>"; };
 		D34C728B1B91BF8800C2586F /* HAHomeScreenVIewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAHomeScreenVIewController.m; sourceTree = "<group>"; };
 		D34C728C1B91BF8800C2586F /* HAHomeScreenVIewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HAHomeScreenVIewController.xib; sourceTree = "<group>"; };
-		D34C729A1B91C82000C2586F /* HALeftMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALeftMenuTableViewController.h; sourceTree = "<group>"; };
-		D34C729B1B91C82000C2586F /* HALeftMenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALeftMenuTableViewController.m; sourceTree = "<group>"; };
-		D34C729C1B91C82000C2586F /* HALeftMenuTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALeftMenuTableViewController.xib; sourceTree = "<group>"; };
 		D34C729F1B91DA0100C2586F /* HABuddyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HABuddyTableViewCell.h; sourceTree = "<group>"; };
 		D34C72A01B91DA0100C2586F /* HABuddyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HABuddyTableViewCell.m; sourceTree = "<group>"; };
 		D34C72A11B91DA0100C2586F /* HABuddyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HABuddyTableViewCell.xib; sourceTree = "<group>"; };
+		D34C72A41B91F54F00C2586F /* HALeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALeftMenuViewController.h; sourceTree = "<group>"; };
+		D34C72A51B91F54F00C2586F /* HALeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALeftMenuViewController.m; sourceTree = "<group>"; };
+		D34C72A61B91F54F00C2586F /* HALeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALeftMenuViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,9 +200,9 @@
 				D34C728A1B91BF8800C2586F /* HAHomeScreenVIewController.h */,
 				D34C728B1B91BF8800C2586F /* HAHomeScreenVIewController.m */,
 				D34C728C1B91BF8800C2586F /* HAHomeScreenVIewController.xib */,
-				D34C729A1B91C82000C2586F /* HALeftMenuTableViewController.h */,
-				D34C729B1B91C82000C2586F /* HALeftMenuTableViewController.m */,
-				D34C729C1B91C82000C2586F /* HALeftMenuTableViewController.xib */,
+				D34C72A41B91F54F00C2586F /* HALeftMenuViewController.h */,
+				D34C72A51B91F54F00C2586F /* HALeftMenuViewController.m */,
+				D34C72A61B91F54F00C2586F /* HALeftMenuViewController.xib */,
 				01AB3B0A1B91C1CD004625F9 /* HASignupInfoViewController.h */,
 				01AB3B0B1B91C1CD004625F9 /* HASignupInfoViewController.m */,
 				D34C729F1B91DA0100C2586F /* HABuddyTableViewCell.h */,
@@ -376,7 +376,7 @@
 				D34C72A31B91DA0100C2586F /* HABuddyTableViewCell.xib in Resources */,
 				26EEF7C51B91AEB500132A92 /* LaunchScreen.xib in Resources */,
 				26B446951B91C80C0066F83C /* BeaconstacData.bundle in Resources */,
-				D34C729E1B91C82000C2586F /* HALeftMenuTableViewController.xib in Resources */,
+				D34C72A81B91F54F00C2586F /* HALeftMenuViewController.xib in Resources */,
 				26EEF7C21B91AEB500132A92 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,13 +417,13 @@
 				26EEF7BA1B91AEB500132A92 /* AppDelegate.m in Sources */,
 				52EDFCCB1B91CFB1004C65DB /* AFHTTPRequestOperationManager.m in Sources */,
 				26EEF7B71B91AEB500132A92 /* main.m in Sources */,
-				D34C729D1B91C82000C2586F /* HALeftMenuTableViewController.m in Sources */,
 				260A959F1B91D34300DE286A /* HAUser.m in Sources */,
 				52EDFCCC1B91CFB1004C65DB /* AFHTTPSessionManager.m in Sources */,
 				D34C728D1B91BF8800C2586F /* HAHomeScreenVIewController.m in Sources */,
 				52EDFC621B91BA5C004C65DB /* RESideMenu.m in Sources */,
 				01AB3B0C1B91C1CD004625F9 /* HASignupInfoViewController.m in Sources */,
 				52EDFCCE1B91CFB1004C65DB /* AFSecurityPolicy.m in Sources */,
+				D34C72A71B91F54F00C2586F /* HALeftMenuViewController.m in Sources */,
 				52EDFC611B91BA5C004C65DB /* RECommonFunctions.m in Sources */,
 				52EDFCD01B91CFB1004C65DB /* AFURLRequestSerialization.m in Sources */,
 				52EDFCCD1B91CFB1004C65DB /* AFNetworkReachabilityManager.m in Sources */,

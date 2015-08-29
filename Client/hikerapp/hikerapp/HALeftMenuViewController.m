@@ -1,37 +1,32 @@
 //
-//  HALeftMenuTableViewController.m
+//  HALeftMenuViewController.m
 //  hikerapp
 //
 //  Created by Ravindra Shetty on 29/08/15.
 //  Copyright (c) 2015 Hike. All rights reserved.
 //
 
-#import "HALeftMenuTableViewController.h"
-#import "UIViewController+RESideMenu.h"
-#import "RESideMenu.h"
+#import "HALeftMenuViewController.h"
 
-@interface HALeftMenuTableViewController ()
+@interface HALeftMenuViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *menuItems;
+
 @end
 
-@implementation HALeftMenuTableViewController
+@implementation HALeftMenuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.menuItems = @[@"Home", @"Settings", @"LogOut"];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.menuItems = @[@"Home", @"Settings", @"Log Out"];
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - Table view data source
 
@@ -49,9 +44,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"menuCell"];
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.textColor = [UIColor whiteColor];
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    cell.textLabel.text = [self.menuItems objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@",[self.menuItems objectAtIndex:indexPath.row]];
     return cell;
 }
 
@@ -69,5 +65,6 @@
         
     }
 }
+
 
 @end
