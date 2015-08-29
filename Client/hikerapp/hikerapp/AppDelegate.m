@@ -35,7 +35,10 @@
         
         HALeftMenuTableViewController *leftMenu = [[HALeftMenuTableViewController alloc] initWithNibName:@"HALeftMenuTableViewController" bundle:nil];
         
-        self.window.rootViewController = [[RESideMenu alloc] initWithContentViewController:navigatioNVC leftMenuViewController:leftMenu rightMenuViewController:nil];
+        RESideMenu *slideMenu = [[RESideMenu alloc] initWithContentViewController:navigatioNVC leftMenuViewController:leftMenu rightMenuViewController:nil];
+        slideMenu.backgroundImage = [UIImage imageNamed:@"signup_bg"];
+        slideMenu.contentViewInPortraitOffsetCenterX = -50;
+        self.window.rootViewController = slideMenu;
     } else {
         HASignupInfoViewController *signUpViewController = [[HASignupInfoViewController alloc] init];
         UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:signUpViewController];
