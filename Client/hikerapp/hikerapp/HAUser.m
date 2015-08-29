@@ -9,6 +9,7 @@
 #import "HAUser.h"
 
 NSString * const kKeyUserId = @"userID";
+NSString * const kKeyName = @"name";
 NSString * const kKeyUserName = @"userName";
 NSString * const kKeyPhoneNumber = @"phoneNumber";
 NSString * const kKeyGender = @"gender";
@@ -41,6 +42,15 @@ NSString * const kKeyImage = @"image";
 }
 
 
+
+//name
+- (void)setName:(NSString*)name {
+    [self.parseUser setObject:name forKey:kKeyUserName];
+}
+
+- (NSString*)name {
+    return [self.parseUser objectForKey:kKeyUserName];
+}
 
 //User name
 - (void)setUserName:(NSString*)Name {

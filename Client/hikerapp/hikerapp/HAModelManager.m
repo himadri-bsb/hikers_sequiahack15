@@ -89,7 +89,10 @@
     }
 
 
-
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:kLocationPrivacyKey]) {
+        return;
+    }
+    
     if(![self.currentUser.location isEqualToString:exactLocation]) {
         currentUser.location = exactLocation;
 
@@ -121,6 +124,10 @@
     else if([location isEqualToString:@"49201:35267"]){
         exactLocation = LOCATION_DESK;
         NSLog(@"Exited on %@",LOCATION_DESK);
+    }
+
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:kLocationPrivacyKey]) {
+        return;
     }
 
     [currentUser.parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

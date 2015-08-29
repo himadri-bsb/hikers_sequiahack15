@@ -19,7 +19,7 @@
 #import "SVProgressHUD.h"
 
 @interface AppDelegate ()
-
+@property (strong, nonatomic) UILocalNotification *takeWalkNotif;
 @end
 
 @implementation AppDelegate
@@ -145,6 +145,22 @@
     NSLog(@"%@, %@", error, error.localizedDescription);
 }
 
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    // Play a sound and show an alert only if the application is active, to avoid doubly notifiying the user.
+    if([notification.alertBody isEqualToString:self.takeWalkNotif.alertBody]) {
+        if ([application applicationState] == UIApplicationStateActive) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Take a Walk!!"
+                                                            message:[notification alertBody]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Okey"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        [self cancelNotificationNotification];
+    }
+}
+
+
 - (void)showLoader:(BOOL)show {
     if (show) {
         [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.9]];
@@ -162,6 +178,8 @@
 }
 
 - (void)handleSignUpComplete {
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kLocationPrivacyKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [self registerForRemoteNotifications];
     [self showHomeScreen];
 }
@@ -180,6 +198,44 @@
 }
 
 
+- (void)scheduleLocalNNotification {
+    if (self.takeWalkNotif) {
+        [[UIApplication sharedApplication] cancelLocalNotification:self.takeWalkNotif];
+    }
+    
+    self.takeWalkNotif = [[UILocalNotification alloc] init];
+    
+    NSDictionary *alertValue = [[NSUserDefaults standardUserDefaults] valueForKey:kWalkAlertKey];
+    NSTimeInterval interval = [[[alertValue allValues] firstObject] floatValue]*60.0f;
+    if (interval >= 10) {
+        NSDate *now = [NSDate date];
+        NSDate *dateToFire = [now dateByAddingTimeInterval:interval];
+        self.takeWalkNotif.fireDate = dateToFire;
+        if (interval > 60) {
+            self.takeWalkNotif.alertBody = [NSString stringWithFormat:@"Hey, You are sitting at your desk from past %@ mins! Get up and take some walk.",[[alertValue allValues] firstObject]];
+        }
+        else {
+            self.takeWalkNotif.alertBody = [NSString stringWithFormat:@"Hey, You are sitting at your desk from past %.0f secs! Get up and take some walk.",interval];
+        }
+        
+        self.takeWalkNotif.soundName = UILocalNotificationDefaultSoundName;
+        self.takeWalkNotif.applicationIconBadgeNumber = 1;
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:self.takeWalkNotif];
+    }
+}
+
+- (void)cancelNotificationNotification {
+    if (self.takeWalkNotif) {
+        [[NSUserDefaults standardUserDefaults] setValue:@{@"Off":@"0"} forKey:kWalkAlertKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [[UIApplication sharedApplication] cancelLocalNotification:self.takeWalkNotif];
+    }
+}
+
+-(void)didUpdatedLocation:(NSNotification *)notif {
+    [self scheduleLocalNNotification];
+}
 
 
 @end

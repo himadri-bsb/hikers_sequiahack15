@@ -98,7 +98,7 @@
     HABuddyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buddyCell"];
     HAUser *user = [self.usersArray objectAtIndex:indexPath.row];
     cell.avatarImageView.image = user.image;
-    cell.nameLabel.text = user.userName;
+    cell.nameLabel.text = user.name;
     cell.locationLabel.text = user.location;
     return cell;
 }
