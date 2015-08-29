@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01AB3B0C1B91C1CD004625F9 /* HASignupInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AB3B0B1B91C1CD004625F9 /* HASignupInfoViewController.m */; };
+		01AB3B121B91F2B1004625F9 /* HASettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AB3B111B91F2B1004625F9 /* HASettingsViewController.m */; };
 		260A959F1B91D34300DE286A /* HAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 260A959E1B91D34300DE286A /* HAUser.m */; };
 		26B446891B91C5D70066F83C /* Beaconstac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B446881B91C5D70066F83C /* Beaconstac.framework */; };
 		26B4468B1B91C6040066F83C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B4468A1B91C6040066F83C /* SystemConfiguration.framework */; };
@@ -60,6 +61,8 @@
 /* Begin PBXFileReference section */
 		01AB3B0A1B91C1CD004625F9 /* HASignupInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HASignupInfoViewController.h; sourceTree = "<group>"; };
 		01AB3B0B1B91C1CD004625F9 /* HASignupInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HASignupInfoViewController.m; sourceTree = "<group>"; };
+		01AB3B101B91F2B1004625F9 /* HASettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HASettingsViewController.h; sourceTree = "<group>"; };
+		01AB3B111B91F2B1004625F9 /* HASettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HASettingsViewController.m; sourceTree = "<group>"; };
 		260A959D1B91D34300DE286A /* HAUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAUser.h; sourceTree = "<group>"; };
 		260A959E1B91D34300DE286A /* HAUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAUser.m; sourceTree = "<group>"; };
 		260A95A01B91D78400DE286A /* HACommonDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HACommonDefs.h; sourceTree = "<group>"; };
@@ -210,6 +213,8 @@
 				01AB3B0B1B91C1CD004625F9 /* HASignupInfoViewController.m */,
 				D34C729F1B91DA0100C2586F /* HABuddyTableViewCell.h */,
 				D34C72A01B91DA0100C2586F /* HABuddyTableViewCell.m */,
+				01AB3B101B91F2B1004625F9 /* HASettingsViewController.h */,
+				01AB3B111B91F2B1004625F9 /* HASettingsViewController.m */,
 				D34C72A11B91DA0100C2586F /* HABuddyTableViewCell.xib */,
 				26EEF7C11B91AEB500132A92 /* Images.xcassets */,
 				26EEF7C31B91AEB500132A92 /* LaunchScreen.xib */,
@@ -431,6 +436,8 @@
 				26EEF7BA1B91AEB500132A92 /* AppDelegate.m in Sources */,
 				52EDFCCB1B91CFB1004C65DB /* AFHTTPRequestOperationManager.m in Sources */,
 				26EEF7B71B91AEB500132A92 /* main.m in Sources */,
+				01AB3B121B91F2B1004625F9 /* HASettingsViewController.m in Sources */,
+				D34C729D1B91C82000C2586F /* HALeftMenuTableViewController.m in Sources */,
 				260A959F1B91D34300DE286A /* HAUser.m in Sources */,
 				52EDFCCC1B91CFB1004C65DB /* AFHTTPSessionManager.m in Sources */,
 				D34C728D1B91BF8800C2586F /* HAHomeScreenVIewController.m in Sources */,

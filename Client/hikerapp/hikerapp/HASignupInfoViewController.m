@@ -36,10 +36,9 @@
 }
 
 - (void)setUpNavigationBar {
-    self.navigationController.navigationBar.translucent = YES;
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithWhite:0.0 alpha:0.3]];
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
+    if(self.isSignUpMode) {
+        [self.navigationController.navigationBar setHidden:YES];
+    }
 }
 
 - (void)setupUI {
@@ -91,7 +90,11 @@
     self.submitButton = [[UIButton alloc] initWithFrame:CGRectZero];
     self.submitButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self.submitButton setBackgroundColor:[UIColor colorWithRed:51.0f/255.0f green:150.0f/255.0f blue:174.0f/255.0f alpha:0.8f]];
-    [self.submitButton setTitle:@"Submit" forState:UIControlStateNormal];
+    if (self.isSignUpMode) {
+        [self.submitButton setTitle:@"Submit" forState:UIControlStateNormal];
+    } else {
+        [self.submitButton setTitle:@"Update" forState:UIControlStateNormal];
+    }
     [self.submitButton addTarget:self action:@selector(submitButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.submitButton];
 }
