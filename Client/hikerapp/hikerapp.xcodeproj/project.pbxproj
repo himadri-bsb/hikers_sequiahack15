@@ -14,6 +14,9 @@
 		26EEF7C21B91AEB500132A92 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26EEF7C11B91AEB500132A92 /* Images.xcassets */; };
 		26EEF7C51B91AEB500132A92 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EEF7C31B91AEB500132A92 /* LaunchScreen.xib */; };
 		26EEF7D11B91AEB500132A92 /* hikerappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEF7D01B91AEB500132A92 /* hikerappTests.m */; };
+		52EDFC611B91BA5C004C65DB /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EDFC5C1B91BA5C004C65DB /* RECommonFunctions.m */; };
+		52EDFC621B91BA5C004C65DB /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EDFC5E1B91BA5C004C65DB /* RESideMenu.m */; };
+		52EDFC631B91BA5C004C65DB /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EDFC601B91BA5C004C65DB /* UIViewController+RESideMenu.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,12 @@
 		26EEF7CA1B91AEB500132A92 /* hikerappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hikerappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26EEF7CF1B91AEB500132A92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26EEF7D01B91AEB500132A92 /* hikerappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hikerappTests.m; sourceTree = "<group>"; };
+		52EDFC5B1B91BA5C004C65DB /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		52EDFC5C1B91BA5C004C65DB /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		52EDFC5D1B91BA5C004C65DB /* RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenu.h; sourceTree = "<group>"; };
+		52EDFC5E1B91BA5C004C65DB /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenu.m; sourceTree = "<group>"; };
+		52EDFC5F1B91BA5C004C65DB /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
+		52EDFC601B91BA5C004C65DB /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +97,7 @@
 				26EEF7BE1B91AEB500132A92 /* Main.storyboard */,
 				26EEF7C11B91AEB500132A92 /* Images.xcassets */,
 				26EEF7C31B91AEB500132A92 /* LaunchScreen.xib */,
+				52EDFC5A1B91B9A0004C65DB /* SideMenu */,
 				26EEF7B41B91AEB500132A92 /* Supporting Files */,
 			);
 			path = hikerapp;
@@ -117,6 +127,19 @@
 				26EEF7CF1B91AEB500132A92 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		52EDFC5A1B91B9A0004C65DB /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				52EDFC5B1B91BA5C004C65DB /* RECommonFunctions.h */,
+				52EDFC5C1B91BA5C004C65DB /* RECommonFunctions.m */,
+				52EDFC5D1B91BA5C004C65DB /* RESideMenu.h */,
+				52EDFC5E1B91BA5C004C65DB /* RESideMenu.m */,
+				52EDFC5F1B91BA5C004C65DB /* UIViewController+RESideMenu.h */,
+				52EDFC601B91BA5C004C65DB /* UIViewController+RESideMenu.m */,
+			);
+			name = SideMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +245,9 @@
 				26EEF7BD1B91AEB500132A92 /* ViewController.m in Sources */,
 				26EEF7BA1B91AEB500132A92 /* AppDelegate.m in Sources */,
 				26EEF7B71B91AEB500132A92 /* main.m in Sources */,
+				52EDFC621B91BA5C004C65DB /* RESideMenu.m in Sources */,
+				52EDFC611B91BA5C004C65DB /* RECommonFunctions.m in Sources */,
+				52EDFC631B91BA5C004C65DB /* UIViewController+RESideMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +442,7 @@
 				26EEF7D61B91AEB500132A92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		26EEF7D71B91AEB500132A92 /* Build configuration list for PBXNativeTarget "hikerappTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +451,7 @@
 				26EEF7D91B91AEB500132A92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
