@@ -24,6 +24,7 @@
 - (void)prepareForReuse {
     [super prepareForReuse];
     self.notifIndicatorView.hidden = YES;
+    self.isObserving = NO;
 }
 
 - (void)addLongPressGestureRecogniser

@@ -16,4 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (strong, nonatomic) UIView *notifIndicatorView;
 
+@property (nonatomic, assign) BOOL isObserving;
+
 @end
