@@ -11,6 +11,7 @@
 NSString * const kKeyUserName = @"userName";
 NSString * const kKeyPhoneNumber = @"phoneNumber";
 NSString * const kKeyGender = @"gender";
+NSString * const kKeyLocation = @"location";
 NSString * const kKeyImage = @"image";
 
 @implementation HAUser
@@ -20,6 +21,7 @@ NSString * const kKeyImage = @"image";
         self.userName = [aDecoder decodeObjectForKey:kKeyUserName];
         self.phoneNumber = [aDecoder decodeObjectForKey:kKeyPhoneNumber];
         self.gender = [aDecoder decodeObjectForKey:kKeyGender];
+        self.location = [aDecoder decodeObjectForKey:kKeyLocation];
         NSData *imageData = [aDecoder decodeObjectForKey:kKeyImage];
         self.image = [UIImage imageWithData:imageData];
     }
@@ -31,6 +33,7 @@ NSString * const kKeyImage = @"image";
     [aCoder encodeObject:self.userName forKey:kKeyUserName];
     [aCoder encodeObject:self.phoneNumber forKey:kKeyPhoneNumber];
     [aCoder encodeObject:self.gender forKey:kKeyGender];
+    [aCoder encodeObject:self.location forKey:kKeyLocation];
 
     NSData *imageData = UIImagePNGRepresentation(self.image);
     [aCoder encodeObject:imageData forKey:kKeyImage];
