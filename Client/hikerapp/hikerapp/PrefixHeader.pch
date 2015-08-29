@@ -1,0 +1,19 @@
+//
+//  PrefixHeader.pch
+//  hikerapp
+//
+//  Created by Vijay on 29/08/15.
+//  Copyright (c) 2015 Hike. All rights reserved.
+//
+
+#ifndef hikerapp_PrefixHeader_pch
+#define hikerapp_PrefixHeader_pch
+
+#ifndef TARGET_OS_IOS
+#define TARGET_OS_IOS TARGET_OS_IPHONE
+#endif
+#ifndef TARGET_OS_WATCH
+#define TARGET_OS_WATCH 0
+#endif
+
+#endif
