@@ -62,11 +62,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 1;
-    } else {
-        return 2;
-    }
+//    if (section == 0) {
+//        return 1;
+//    } else {
+//        return 2;
+//    }
+    return 1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -101,6 +102,10 @@
         if (indexPath.row == 0) {
             cell.textLabel.text = @"Allow to track location";
             cell.detailTextLabel.text = @"Will block others to see your corrent location";
+            UISwitch *trackSwitch = [[UISwitch alloc] init];
+            [trackSwitch addTarget:self action:@selector(didChangeSwitchValue:) forControlEvents:UIControlEventValueChanged];
+            trackSwitch.tag = 2001;
+            cell.accessoryView = trackSwitch;
         } else {
             cell.textLabel.text = @"Set maximum ideal time";
             cell.detailTextLabel.text = @"Will show alert if you stay ideal at the same palce for this much time";
@@ -112,11 +117,19 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0 && indexPath.row == 0) {
         // Profile
         HASignupInfoViewController *profileVC = [[HASignupInfoViewController alloc] init];
         profileVC.isSignUpMode = NO;
+        profileVC.title = @"Profile";
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
         [self.navigationController pushViewController:profileVC animated:YES];
+    }
+}
+
+- (void)didChangeSwitchValue:(UISwitch *)sender {
+    if (sender.tag == 2001) {
+        // Don't allow tracking
     }
 }
 
