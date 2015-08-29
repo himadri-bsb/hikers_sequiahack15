@@ -55,8 +55,12 @@
         HASignupInfoViewController *signUpViewController = [[HASignupInfoViewController alloc] init];
         signUpViewController.isSignUpMode = YES;
         UINavigationController *navigationVC = [[UINavigationController alloc] init];
+        [navigationVC.navigationBar setBarTintColor:[UIColor colorWithRed:51.0f/255.0f green:150.0f/255.0f blue:174.0f/255.0f alpha:0.8f]];
+        [navigationVC.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
         Digits *digits = [Digits sharedInstance];
-        [digits authenticateWithNavigationViewController:navigationVC phoneNumber:@"+919844480550" digitsAppearance:nil title:nil completionViewController:signUpViewController];
+        DGTAppearance *appearance = [[DGTAppearance alloc] init];
+        appearance.accentColor = [UIColor colorWithRed:51.0f/255.0f green:150.0f/255.0f blue:174.0f/255.0f alpha:0.8f];
+        [digits authenticateWithNavigationViewController:navigationVC phoneNumber:@"" digitsAppearance:appearance title:nil completionViewController:signUpViewController];
         self.window.rootViewController = navigationVC;
     }
     [self.window makeKeyAndVisible];
