@@ -69,12 +69,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    if (section == 0) {
-//        return 1;
-//    } else {
-//        return 2;
-//    }
-    return 1;
+    if (section == 0) {
+        return 1;
+    } else {
+        return 2;
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -85,7 +84,7 @@
     if (indexPath.section == 0) {
         return 50.0f;
     } else {
-        return 60.0f;
+        return 64.0f;
     }
 }
 
@@ -98,6 +97,7 @@
         }
         cell.textLabel.text = @"Profile";
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"settingsCell"];
@@ -116,6 +116,10 @@
         } else {
             cell.textLabel.text = @"Set maximum ideal time";
             cell.detailTextLabel.text = @"Will show alert if you stay ideal at the same palce for this much time";
+            UISwitch *trackSwitch = [[UISwitch alloc] init];
+            [trackSwitch addTarget:self action:@selector(didChangeSwitchValue:) forControlEvents:UIControlEventValueChanged];
+            trackSwitch.tag = 2002;
+            cell.accessoryView = trackSwitch;
         }
         return cell;
     }
@@ -137,6 +141,8 @@
 - (void)didChangeSwitchValue:(UISwitch *)sender {
     if (sender.tag == 2001) {
         // Don't allow tracking
+    } else if (sender.tag == 2002) {
+        // Show alert if users stays at same place
     }
 }
 
