@@ -14,6 +14,7 @@
 
 - (void)awakeFromNib {
     self.avatarImageView.layer.cornerRadius = 25.0f;
+    self.avatarImageView.layer.masksToBounds = YES;
     self.notifIndicatorView = [[UIView alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width-20, 0, 20, 75)];
     [self.notifIndicatorView setBackgroundColor:[UIColor orangeColor]];
     [self.notifIndicatorView setHidden:YES];

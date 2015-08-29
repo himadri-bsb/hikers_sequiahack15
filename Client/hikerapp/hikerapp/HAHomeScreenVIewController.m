@@ -51,6 +51,8 @@
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:51.0f/255.0f green:150.0f/255.0f blue:174.0f/255.0f alpha:0.8f];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLongPressForCell:) name:kNotification_LongPressTableCell object:nil];
+    
+    [self refreshData];
 }
 
 - (void)handleLongPressForCell:(NSNotification  *)notification {

@@ -235,6 +235,7 @@
                         if(succeeded) {
                             //Sign up complete
                             [[AppDelegate sharedAppDelegate] showLoader:NO];
+                            [[AppDelegate sharedAppDelegate] handleSignUpComplete];
                         }
                         else {
                             if(error) {
