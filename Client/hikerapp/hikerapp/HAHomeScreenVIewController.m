@@ -36,6 +36,10 @@
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(didTapMenuButton:)];
     self.navigationItem.leftBarButtonItem = leftButton;
     
+    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(didTapRefreshButton:)];
+
+    self.navigationItem.rightBarButtonItem = refreshButton;
+    
     [self.tablevIew registerNib:[UINib nibWithNibName:@"HABuddyTableViewCell" bundle:nil] forCellReuseIdentifier:@"buddyCell"];
     
     self.tablevIew.separatorInset = UIEdgeInsetsMake(0, 75, 0, 0);
@@ -47,6 +51,10 @@
 
 - (void)didTapMenuButton:(id)sender {
     [self presentLeftMenuViewController:nil];
+}
+
+- (void)didTapRefreshButton:(id)sender {
+    //Refresh code
 }
 
 - (void)didReceiveMemoryWarning {
