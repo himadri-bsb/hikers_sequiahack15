@@ -17,10 +17,11 @@
 
 @property (nonatomic, strong)PFUser *parseUser;
 
-@property (nonatomic, strong) NSString *userName;
-@property (nonatomic, strong) NSString *phoneNumber;
-@property (nonatomic, strong) NSString *gender;
-@property (nonatomic, strong) NSString *location;
+@property (nonatomic, copy) NSString *userID;
+@property (nonatomic, copy) NSString *userName;
+@property (nonatomic, copy) NSString *phoneNumber;
+@property (nonatomic, copy) NSString *gender;
+@property (nonatomic, copy) NSString *location;
 @property (nonatomic, strong) UIImage *image;
 
 @end
