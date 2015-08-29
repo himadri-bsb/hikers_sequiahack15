@@ -10,6 +10,7 @@
 #import "UIViewController+RESideMenu.h"
 #import "RESideMenu.h"
 #import <Beaconstac/Beaconstac.h>
+#import "HACommonDefs.h"
 
 @interface HAHomeScreenVIewController () <BeaconstacDelegate>
 
@@ -26,7 +27,7 @@
     self.beaconstacInstance.delegate = self;
     self.beaconstacInstance.beaconaffinity = MSBeaconAffinityLow;
 
-    [self.beaconstacInstance startRangingBeaconsWithUUIDString:@"B9407F30-F5F8-466E-AFF9-25556B57FE6D" beaconIdentifier:@"com.hike.hikerapp" filterOptions:nil];
+    [self.beaconstacInstance startRangingBeaconsWithUUIDString:BEACON_UDID beaconIdentifier:@"com.hike.hikerapp" filterOptions:nil];
     
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(didTapMenuButton:)];
     self.navigationItem.leftBarButtonItem = leftButton;
@@ -51,6 +52,20 @@
 - (void)beaconstac:(Beaconstac *)beaconstac campedOnBeacon:(MSBeacon *)beacon amongstAvailableBeacons:(NSDictionary *)beaconsDictionary
 {
     NSLog(@"Camped on beacon %@",beacon);
+
+    MSBeacon *campedBeacon = (MSBeacon*)beacon;
+    NSString *location = [[campedBeacon.beaconKey uppercaseString] stringByReplacingOccurrencesOfString:BEACON_UDID withString:@""];
+    NSString *exactLocation = UNKNOWN_LOCATION;
+    if([location isEqualToString:@"6616:56252"]) {
+        exactLocation = @"Cafeteria";
+        NSLog(@"Camped on CAFE");
+    }
+    else if([location isEqualToString:@"49201:35267"]){
+        exactLocation = @"Desk";
+        NSLog(@"Camped on DESK");
+    }
+
+    //Send location to server if it has changed
 }
 
 
