@@ -80,6 +80,10 @@
 		D34C72A31B91DA0100C2586F /* HABuddyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34C72A11B91DA0100C2586F /* HABuddyTableViewCell.xib */; };
 		D34C72A71B91F54F00C2586F /* HALeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C72A51B91F54F00C2586F /* HALeftMenuViewController.m */; };
 		D34C72A81B91F54F00C2586F /* HALeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34C72A61B91F54F00C2586F /* HALeftMenuViewController.xib */; };
+		D34C73001B92291400C2586F /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C72F91B92291400C2586F /* SVIndefiniteAnimatedView.m */; };
+		D34C73011B92291400C2586F /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D34C72FB1B92291400C2586F /* SVProgressHUD.bundle */; };
+		D34C73021B92291400C2586F /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C72FD1B92291400C2586F /* SVProgressHUD.m */; };
+		D34C73031B92291400C2586F /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C72FF1B92291400C2586F /* SVRadialGradientLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -214,6 +218,14 @@
 		D34C72A41B91F54F00C2586F /* HALeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALeftMenuViewController.h; sourceTree = "<group>"; };
 		D34C72A51B91F54F00C2586F /* HALeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALeftMenuViewController.m; sourceTree = "<group>"; };
 		D34C72A61B91F54F00C2586F /* HALeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALeftMenuViewController.xib; sourceTree = "<group>"; };
+		D34C72F81B92291400C2586F /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		D34C72F91B92291400C2586F /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		D34C72FA1B92291400C2586F /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		D34C72FB1B92291400C2586F /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		D34C72FC1B92291400C2586F /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		D34C72FD1B92291400C2586F /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		D34C72FE1B92291400C2586F /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		D34C72FF1B92291400C2586F /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,6 +359,7 @@
 				D34C72A11B91DA0100C2586F /* HABuddyTableViewCell.xib */,
 				26EEF7C11B91AEB500132A92 /* Images.xcassets */,
 				26EEF7C31B91AEB500132A92 /* LaunchScreen.xib */,
+				D34C72F71B92291400C2586F /* SVProgressHUD */,
 				52EDFCE21B91F881004C65DB /* SignUp */,
 				52EDFCB61B91CF8E004C65DB /* Network */,
 				52EDFCAE1B91CDEE004C65DB /* Fabric.framework */,
@@ -491,6 +504,21 @@
 			name = "Image Resize";
 			sourceTree = "<group>";
 		};
+		D34C72F71B92291400C2586F /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				D34C72F81B92291400C2586F /* SVIndefiniteAnimatedView.h */,
+				D34C72F91B92291400C2586F /* SVIndefiniteAnimatedView.m */,
+				D34C72FA1B92291400C2586F /* SVProgressHUD-Prefix.pch */,
+				D34C72FB1B92291400C2586F /* SVProgressHUD.bundle */,
+				D34C72FC1B92291400C2586F /* SVProgressHUD.h */,
+				D34C72FD1B92291400C2586F /* SVProgressHUD.m */,
+				D34C72FE1B92291400C2586F /* SVRadialGradientLayer.h */,
+				D34C72FF1B92291400C2586F /* SVRadialGradientLayer.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -575,6 +603,7 @@
 				52EDFCB41B91CDEE004C65DB /* DigitsKitResources.bundle in Resources */,
 				D34C728E1B91BF8800C2586F /* HAHomeScreenVIewController.xib in Resources */,
 				D34C72A31B91DA0100C2586F /* HABuddyTableViewCell.xib in Resources */,
+				D34C73011B92291400C2586F /* SVProgressHUD.bundle in Resources */,
 				26EEF7C51B91AEB500132A92 /* LaunchScreen.xib in Resources */,
 				26B446951B91C80C0066F83C /* BeaconstacData.bundle in Resources */,
 				D34C72A81B91F54F00C2586F /* HALeftMenuViewController.xib in Resources */,
@@ -617,11 +646,13 @@
 				52EDFD0A1B922027004C65DB /* MKAnnotationView+WebCache.m in Sources */,
 				52EDFCCF1B91CFB1004C65DB /* AFURLConnectionOperation.m in Sources */,
 				52EDFCCA1B91CFB1004C65DB /* AFHTTPRequestOperation.m in Sources */,
+				D34C73001B92291400C2586F /* SVIndefiniteAnimatedView.m in Sources */,
 				52EDFD1F1B922117004C65DB /* UIImage+Resize.m in Sources */,
 				26EEF7BA1B91AEB500132A92 /* AppDelegate.m in Sources */,
 				52EDFCCB1B91CFB1004C65DB /* AFHTTPRequestOperationManager.m in Sources */,
 				26EEF7B71B91AEB500132A92 /* main.m in Sources */,
 				52EDFD0D1B922027004C65DB /* SDWebImageCompat.m in Sources */,
+				D34C73021B92291400C2586F /* SVProgressHUD.m in Sources */,
 				52EDFD0C1B922027004C65DB /* SDImageCache.m in Sources */,
 				52EDFD151B922027004C65DB /* UIImage+MultiFormat.m in Sources */,
 				52EDFD141B922027004C65DB /* UIImage+GIF.m in Sources */,
@@ -653,6 +684,7 @@
 				52EDFD191B922027004C65DB /* UIView+WebCacheOperation.m in Sources */,
 				52EDFD171B922027004C65DB /* UIImageView+HighlightedWebCache.m in Sources */,
 				52EDFC631B91BA5C004C65DB /* UIViewController+RESideMenu.m in Sources */,
+				D34C73031B92291400C2586F /* SVRadialGradientLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
