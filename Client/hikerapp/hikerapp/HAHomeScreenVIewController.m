@@ -40,6 +40,9 @@
     
     self.tablevIew.separatorInset = UIEdgeInsetsMake(0, 75, 0, 0);
     self.tablevIew.tableFooterView = [[UIView alloc] init];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:51.0f/255.0f green:150.0f/255.0f blue:174.0f/255.0f alpha:0.8f];
 }
 
 - (void)didTapMenuButton:(id)sender {
@@ -91,11 +94,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HABuddyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buddyCell"];
-//    if (!cell) {
-//        cell = [[HABuddyTableViewCell alloc] initWithStyle:UITableViewCellStyle reuseIdentifier:@"buddyCell"];
-//        cell.backgroundColor = [UIColor clearColor];
-//        cell.textLabel.textColor = [UIColor whiteColor];
-//    }
     return cell;
 }
 
