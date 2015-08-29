@@ -8,6 +8,9 @@
 
 #import "HASignupInfoViewController.h"
 #import <DigitsKit/DigitsKit.h>
+#import "HAUser.h"
+#import "HAModelManager.h"
+#import "AppDelegate.h"
 
 
 @interface HASignupInfoViewController ()<UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -244,7 +247,93 @@
     return YES;
 }
 
--(void)digitsAuthenticationFinishedWithSession:(DGTSession *)session error:(NSError *)error {
+-(void)digitsAuthenticationFinishedWithSession:(DGTSession *)aSession error:(NSError *)error {
+    if(!error) {
+        // Show loader
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //Display progress indicator
+            [[AppDelegate sharedAppDelegate] showLoader:YES];
+        });
+
+        HAUser *currentUser = [[HAModelManager sharedManager] currentUser];
+        currentUser.parseUser.username = aSession.phoneNumber;
+        currentUser.parseUser.password = aSession.userID;
+
+        //Handle Parse login
+        [currentUser.parseUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSLog(@"Registration success!");
+                    currentUser.phoneNumber = aSession.phoneNumber;
+                    currentUser.userName = self.nameTextField.text;
+                    currentUser.userID = aSession.userID;
+
+                    [currentUser.parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        dispatch_async(dispatch_get_main_queue(), ^ {
+                            if(succeeded) {
+                                //Sign up complete
+                                [[AppDelegate sharedAppDelegate] showLoader:NO];
+                            }
+                            else {
+                                if(error) {
+                                    NSLog(@"setUpDigitButton error on saving daya, error = %@",error);
+                                }
+                            }
+                        });
+                    }];
+                });
+            }
+            else {
+                //Signup failed, try logging in
+                [PFUser logInWithUsernameInBackground:aSession.phoneNumber
+                                             password:aSession.userID
+                                                block:^(PFUser *user, NSError *error) {
+                                                    if(user) {
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            NSLog(@"Registration success!");
+                                                            currentUser.parseUser = user;
+                                                            currentUser.phoneNumber = aSession.phoneNumber;
+                                                            currentUser.userName = self.nameTextField.text;
+                                                            currentUser.userID = aSession.userID;
+
+
+                                                            [currentUser.parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                                                dispatch_async(dispatch_get_main_queue(), ^ {
+                                                                    if(succeeded) {
+                                                                        //Sign up complete
+                                                                        [[AppDelegate sharedAppDelegate] showLoader:NO];
+                                                                    }
+                                                                    else {
+                                                                        if(error) {
+                                                                            NSLog(@"setUpDigitButton error on saving daya, error = %@",error);
+                                                                        }
+                                                                    }
+                                                                });
+                                                            }];
+                                                        });
+                                                    }
+                                                    else {
+                                                        NSLog(@"Registration Failed!");
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            [[AppDelegate sharedAppDelegate] showLoader:NO];
+                                                            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"Error = %@",error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                                                            [alertView show];
+                                                        });
+                                                    }
+                                                    
+                                                }];
+            }
+        }];
+    }
+    else {
+        NSLog(@"Registration Failed!");
+        // Show error
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[AppDelegate sharedAppDelegate] showLoader:NO];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"Error = %@",error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alertView show];
+        });
+    }
 
 }
 
