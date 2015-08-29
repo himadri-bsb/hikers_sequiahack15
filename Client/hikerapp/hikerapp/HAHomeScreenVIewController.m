@@ -35,6 +35,9 @@
     self.navigationItem.leftBarButtonItem = leftButton;
     
     [self.tablevIew registerNib:[UINib nibWithNibName:@"HABuddyTableViewCell" bundle:nil] forCellReuseIdentifier:@"buddyCell"];
+    
+    self.tablevIew.separatorInset = UIEdgeInsetsMake(0, 75, 0, 0);
+    self.tablevIew.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)didTapMenuButton:(id)sender {

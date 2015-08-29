@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ravindra Shetty" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTC-xy-n8a">
-                        <rect key="frame" x="75" y="13" width="226" height="21"/>
+                        <rect key="frame" x="75" y="13" width="122" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="6Uk-Ca-pI0"/>
                         </constraints>
@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desk" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eA-bh-8PY">
-                        <rect key="frame" x="75" y="37" width="226" height="21"/>
+                        <rect key="frame" x="75" y="37" width="34" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="O8R-6g-DaO"/>
                         </constraints>
@@ -61,8 +61,6 @@
                     <constraint firstItem="8eA-bh-8PY" firstAttribute="top" secondItem="qTC-xy-n8a" secondAttribute="bottom" constant="3" id="fnj-gi-DNq"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Pk8-Da-pGg" secondAttribute="bottom" constant="-8" id="iX9-1T-vrs"/>
                     <constraint firstItem="qTC-xy-n8a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="kDJ-10-Zyb"/>
-                    <constraint firstItem="Pk8-Da-pGg" firstAttribute="leading" secondItem="qTC-xy-n8a" secondAttribute="trailing" constant="8" id="vM5-rz-Mf3"/>
-                    <constraint firstItem="Pk8-Da-pGg" firstAttribute="leading" secondItem="8eA-bh-8PY" secondAttribute="trailing" constant="8" id="xvK-IA-wSs"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
