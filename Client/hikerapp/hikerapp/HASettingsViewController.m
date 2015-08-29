@@ -117,7 +117,10 @@
             cell.detailTextLabel.text = @"Will block others to see your corrent location";
             UISwitch *trackSwitch = [[UISwitch alloc] init];
             [trackSwitch addTarget:self action:@selector(didChangeSwitchValue:) forControlEvents:UIControlEventValueChanged];
+            BOOL privacyFlag =  [[NSUserDefaults standardUserDefaults] boolForKey:kLocationPrivacyKey];
+            trackSwitch.on = privacyFlag;
             trackSwitch.tag = 2001;
+            cell.accessoryView = trackSwitch;
             return cell;
         }
         else {
@@ -151,9 +154,8 @@
 
 - (void)didChangeSwitchValue:(UISwitch *)sender {
     if (sender.tag == 2001) {
-        // Don't allow tracking
-    } else if (sender.tag == 2002) {
-        // Show alert if users stays at same place
+        [[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:kLocationPrivacyKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 

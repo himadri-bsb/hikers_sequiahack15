@@ -178,6 +178,8 @@
 }
 
 - (void)handleSignUpComplete {
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kLocationPrivacyKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [self registerForRemoteNotifications];
     [self showHomeScreen];
 }

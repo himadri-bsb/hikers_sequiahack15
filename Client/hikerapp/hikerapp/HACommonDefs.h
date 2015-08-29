@@ -21,4 +21,6 @@
 
 #define kWalkAlertKey @"hikerapp.walk.alert"
 
+#define kLocationPrivacyKey @"hikerapp.location.privacy"
+
 #endif
