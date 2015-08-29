@@ -20,5 +20,7 @@
 
 + (AppDelegate *)sharedAppDelegate;
 
+- (void)scheduleLocalNNotification;
+
 @end
 

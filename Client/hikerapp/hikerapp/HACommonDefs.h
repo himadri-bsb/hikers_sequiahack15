@@ -19,4 +19,6 @@
 
 #define INSTALLATION_USER_ID @"installUserId"
 
+#define kWalkAlertKey @"hikerapp.walk.alert"
+
 #endif
