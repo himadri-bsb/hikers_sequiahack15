@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01AB3B0C1B91C1CD004625F9 /* HASignupInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AB3B0B1B91C1CD004625F9 /* HASignupInfoViewController.m */; };
+		260A959F1B91D34300DE286A /* HAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 260A959E1B91D34300DE286A /* HAUser.m */; };
 		26B446891B91C5D70066F83C /* Beaconstac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B446881B91C5D70066F83C /* Beaconstac.framework */; };
 		26B4468B1B91C6040066F83C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B4468A1B91C6040066F83C /* SystemConfiguration.framework */; };
 		26B4468D1B91C60F0066F83C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B4468C1B91C60F0066F83C /* CoreData.framework */; };
@@ -56,6 +57,9 @@
 /* Begin PBXFileReference section */
 		01AB3B0A1B91C1CD004625F9 /* HASignupInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HASignupInfoViewController.h; sourceTree = "<group>"; };
 		01AB3B0B1B91C1CD004625F9 /* HASignupInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HASignupInfoViewController.m; sourceTree = "<group>"; };
+		260A959D1B91D34300DE286A /* HAUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAUser.h; sourceTree = "<group>"; };
+		260A959E1B91D34300DE286A /* HAUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAUser.m; sourceTree = "<group>"; };
+		260A95A01B91D78400DE286A /* HACommonDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HACommonDefs.h; sourceTree = "<group>"; };
 		26B446881B91C5D70066F83C /* Beaconstac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Beaconstac.framework; sourceTree = "<group>"; };
 		26B4468A1B91C6040066F83C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		26B4468C1B91C60F0066F83C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -140,6 +144,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		260A95991B91D30300DE286A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				260A95A01B91D78400DE286A /* HACommonDefs.h */,
+				260A959D1B91D34300DE286A /* HAUser.h */,
+				260A959E1B91D34300DE286A /* HAUser.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		26B446871B91C5D70066F83C /* BeaconstacSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +189,7 @@
 		26EEF7B31B91AEB500132A92 /* hikerapp */ = {
 			isa = PBXGroup;
 			children = (
+				260A95991B91D30300DE286A /* Model */,
 				26EEF7B81B91AEB500132A92 /* AppDelegate.h */,
 				26EEF7B91B91AEB500132A92 /* AppDelegate.m */,
 				D34C728A1B91BF8800C2586F /* HAHomeScreenVIewController.h */,
@@ -394,6 +409,7 @@
 				52EDFCCB1B91CFB1004C65DB /* AFHTTPRequestOperationManager.m in Sources */,
 				26EEF7B71B91AEB500132A92 /* main.m in Sources */,
 				D34C729D1B91C82000C2586F /* HALeftMenuTableViewController.m in Sources */,
+				260A959F1B91D34300DE286A /* HAUser.m in Sources */,
 				52EDFCCC1B91CFB1004C65DB /* AFHTTPSessionManager.m in Sources */,
 				D34C728D1B91BF8800C2586F /* HAHomeScreenVIewController.m in Sources */,
 				52EDFC621B91BA5C004C65DB /* RESideMenu.m in Sources */,
