@@ -11,6 +11,7 @@
 #import "HAUser.h"
 #import "HAModelManager.h"
 #import "AppDelegate.h"
+#import "UIImage+Resize.h"
 
 
 @interface HASignupInfoViewController ()<UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -307,7 +308,7 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
-    self.avatarImageView.image = image;
+    self.avatarImageView.image = [image  resizedImage:CGSizeMake(100, 100) interpolationQuality:kCGInterpolationMedium];
     [picker dismissViewControllerAnimated:YES completion:NULL];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
