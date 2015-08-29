@@ -42,7 +42,9 @@
     } else {
         HASignupInfoViewController *signUpViewController = [[HASignupInfoViewController alloc] init];
         signUpViewController.isSignUpMode = YES;
-        UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:signUpViewController];
+        UINavigationController *navigationVC = [[UINavigationController alloc] init];
+        Digits *digits = [Digits sharedInstance];
+        [digits authenticateWithNavigationViewController:navigationVC phoneNumber:@"+919844480550" digitsAppearance:nil title:nil completionViewController:signUpViewController];
         self.window.rootViewController = navigationVC;
     }
     [self.window makeKeyAndVisible];
