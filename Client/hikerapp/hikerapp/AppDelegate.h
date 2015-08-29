@@ -16,6 +16,8 @@
 
 - (void)showLoader:(BOOL)show;
 
+- (void)handleSignUpComplete;
+
 + (AppDelegate *)sharedAppDelegate;
 
 @end

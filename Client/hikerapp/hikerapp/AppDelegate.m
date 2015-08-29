@@ -41,16 +41,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     if ([self signedIn]) {
-        HAHomeScreenVIewController *homeScreen = [[HAHomeScreenVIewController alloc] initWithNibName:@"HAHomeScreenVIewController" bundle:nil];
-        UINavigationController *navigatioNVC = [[UINavigationController alloc] initWithRootViewController:homeScreen];
-        
-        
-        HALeftMenuViewController *leftMenu = [[HALeftMenuViewController alloc] initWithNibName:@"HALeftMenuViewController" bundle:nil];
-        
-        RESideMenu *slideMenu = [[RESideMenu alloc] initWithContentViewController:navigatioNVC leftMenuViewController:leftMenu rightMenuViewController:nil];
-        slideMenu.backgroundImage = [UIImage imageNamed:@"signup_bg"];
-        slideMenu.contentViewInPortraitOffsetCenterX = -50;
-        self.window.rootViewController = slideMenu;
+        [self showHomeScreen];
     } else {
         HASignupInfoViewController *signUpViewController = [[HASignupInfoViewController alloc] init];
         signUpViewController.isSignUpMode = YES;
@@ -164,6 +155,23 @@
 + (AppDelegate *)sharedAppDelegate
 {
     return  (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+- (void)handleSignUpComplete {
+    [self showHomeScreen];
+}
+
+- (void)showHomeScreen {
+    HAHomeScreenVIewController *homeScreen = [[HAHomeScreenVIewController alloc] initWithNibName:@"HAHomeScreenVIewController" bundle:nil];
+    UINavigationController *navigatioNVC = [[UINavigationController alloc] initWithRootViewController:homeScreen];
+    
+    
+    HALeftMenuViewController *leftMenu = [[HALeftMenuViewController alloc] initWithNibName:@"HALeftMenuViewController" bundle:nil];
+    
+    RESideMenu *slideMenu = [[RESideMenu alloc] initWithContentViewController:navigatioNVC leftMenuViewController:leftMenu rightMenuViewController:nil];
+    slideMenu.backgroundImage = [UIImage imageNamed:@"signup_bg"];
+    slideMenu.contentViewInPortraitOffsetCenterX = -50;
+    self.window.rootViewController = slideMenu;
 }
 
 
