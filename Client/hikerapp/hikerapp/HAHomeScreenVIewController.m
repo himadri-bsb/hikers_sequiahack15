@@ -13,6 +13,9 @@
 #import "HACommonDefs.h"
 #import "HABuddyTableViewCell.h"
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
+#import "HAModelManager.h"
+#import "HAUser.h"
 
 @interface HAHomeScreenVIewController () <UIActionSheetDelegate>
 
@@ -20,13 +23,17 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tablevIew;
 
-@property (nonatomic, retain) HABuddyTableViewCell *tappedCell;
+@property (nonatomic, strong) HABuddyTableViewCell *tappedCell;
+
+@property (nonatomic, strong) NSMutableArray *usersArray;
 @end
 
 @implementation HAHomeScreenVIewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    [[HAModelManager sharedManager] initializeBeaconStac];
     
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(didTapMenuButton:)];
     self.navigationItem.leftBarButtonItem = leftButton;
@@ -67,39 +74,12 @@
 - (void)didTapRefreshButton:(id)sender {
     //Refresh code
     [[AppDelegate sharedAppDelegate] showLoader:YES];
+    [self refreshData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
-
-#pragma mark - Beacons
-- (void)beaconstac:(Beaconstac *)beaconstac rangedBeacons:(NSDictionary *)beaconsDictionary
-{
-    NSLog(@"Beacons around %@",beaconsDictionary);
-}
-
-
-- (void)beaconstac:(Beaconstac *)beaconstac campedOnBeacon:(MSBeacon *)beacon amongstAvailableBeacons:(NSDictionary *)beaconsDictionary
-{
-    NSLog(@"Camped on beacon %@",beacon);
-
-    MSBeacon *campedBeacon = (MSBeacon*)beacon;
-    NSString *location = [[campedBeacon.beaconKey uppercaseString] stringByReplacingOccurrencesOfString:BEACON_UDID withString:@""];
-    NSString *exactLocation = UNKNOWN_LOCATION;
-    if([location isEqualToString:@"6616:56252"]) {
-        exactLocation = @"Cafeteria";
-        NSLog(@"Camped on CAFE");
-    }
-    else if([location isEqualToString:@"49201:35267"]){
-        exactLocation = @"Desk";
-        NSLog(@"Camped on DESK");
-    }
-
-    //Send location to server if it has changed
-}
-
 
 
 #pragma mark - Table view data source
@@ -109,7 +89,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return [self.usersArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -148,6 +128,30 @@
     }
     // Decide based on the shouldSetTrigger
 }
+
+- (void)refreshData {
+    [[AppDelegate sharedAppDelegate] showLoader:YES];
+    HAUser *currentUser = [[HAModelManager sharedManager] currentUser];
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" notEqualTo:currentUser.parseUser.username];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!error) {
+                // The find succeeded. The first 100 objects are available in objects
+                //NSLog(@"%@", objects);
+                self.usersArray = [NSMutableArray arrayWithArray:objects];
+                [self.tablevIew reloadData];
+            } else {
+                // Log details of the failure
+                //NSLog(@"Error: %@ %@", error, [error userInfo]);
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Refresh Error" message:[NSString stringWithFormat:@"Error = %@",error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                [alertView show];
+            }
+            [[AppDelegate sharedAppDelegate] showLoader:NO];
+        });
+    }];
+}
+
 
 
 
