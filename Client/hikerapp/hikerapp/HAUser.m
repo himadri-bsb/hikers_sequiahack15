@@ -15,15 +15,11 @@ NSString * const kKeyGender = @"gender";
 NSString * const kKeyLocation = @"location";
 NSString * const kKeyImage = @"image";
 
-/*
- 
- @property (nonatomic, strong) NSString *userName;
- @property (nonatomic, strong) NSString *phoneNumber;
- @property (nonatomic, strong) NSString *gender;
- @property (nonatomic, strong) NSString *location;
- @property (nonatomic, strong) UIImage *image;
- 
- */
+@interface HAUser () {
+
+}
+
+@end
 
 @implementation HAUser
 
@@ -88,11 +84,14 @@ NSString * const kKeyImage = @"image";
 
 //User image
 - (void)setImage:(UIImage *)image {
-    [self.parseUser setObject:image forKey:kKeyImage];
+    PFFile *imageFile = [PFFile fileWithData:UIImagePNGRepresentation(image)];
+    [self.parseUser setObject:imageFile forKey:kKeyImage];
 }
 
 - (UIImage *)image {
-    return [self.parseUser objectForKey:kKeyImage];
+    PFFile *imageFile = [self.parseUser objectForKey:kKeyImage];
+    UIImage *image = [UIImage imageWithData:[imageFile getData]];
+    return image;
 }
 
 @end
