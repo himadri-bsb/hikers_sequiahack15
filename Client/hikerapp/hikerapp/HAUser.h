@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) NSString *phoneNumber;
 @property (nonatomic, strong) NSString *gender;
+@property (nonatomic, strong) NSString *location;
 @property (nonatomic, strong) UIImage *image;
 
 @end
