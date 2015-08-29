@@ -9,14 +9,14 @@
 /* Begin PBXBuildFile section */
 		26EEF7B71B91AEB500132A92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEF7B61B91AEB500132A92 /* main.m */; };
 		26EEF7BA1B91AEB500132A92 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEF7B91B91AEB500132A92 /* AppDelegate.m */; };
-		26EEF7BD1B91AEB500132A92 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEF7BC1B91AEB500132A92 /* ViewController.m */; };
-		26EEF7C01B91AEB500132A92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26EEF7BE1B91AEB500132A92 /* Main.storyboard */; };
 		26EEF7C21B91AEB500132A92 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26EEF7C11B91AEB500132A92 /* Images.xcassets */; };
 		26EEF7C51B91AEB500132A92 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EEF7C31B91AEB500132A92 /* LaunchScreen.xib */; };
 		26EEF7D11B91AEB500132A92 /* hikerappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EEF7D01B91AEB500132A92 /* hikerappTests.m */; };
 		52EDFC611B91BA5C004C65DB /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EDFC5C1B91BA5C004C65DB /* RECommonFunctions.m */; };
 		52EDFC621B91BA5C004C65DB /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EDFC5E1B91BA5C004C65DB /* RESideMenu.m */; };
 		52EDFC631B91BA5C004C65DB /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EDFC601B91BA5C004C65DB /* UIViewController+RESideMenu.m */; };
+		D34C728D1B91BF8800C2586F /* HAHomeScreenVIewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C728B1B91BF8800C2586F /* HAHomeScreenVIewController.m */; };
+		D34C728E1B91BF8800C2586F /* HAHomeScreenVIewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34C728C1B91BF8800C2586F /* HAHomeScreenVIewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +35,6 @@
 		26EEF7B61B91AEB500132A92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		26EEF7B81B91AEB500132A92 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		26EEF7B91B91AEB500132A92 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		26EEF7BB1B91AEB500132A92 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		26EEF7BC1B91AEB500132A92 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		26EEF7BF1B91AEB500132A92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		26EEF7C11B91AEB500132A92 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		26EEF7C41B91AEB500132A92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		26EEF7CA1B91AEB500132A92 /* hikerappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hikerappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +46,9 @@
 		52EDFC5E1B91BA5C004C65DB /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenu.m; sourceTree = "<group>"; };
 		52EDFC5F1B91BA5C004C65DB /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
 		52EDFC601B91BA5C004C65DB /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
+		D34C728A1B91BF8800C2586F /* HAHomeScreenVIewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAHomeScreenVIewController.h; sourceTree = "<group>"; };
+		D34C728B1B91BF8800C2586F /* HAHomeScreenVIewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAHomeScreenVIewController.m; sourceTree = "<group>"; };
+		D34C728C1B91BF8800C2586F /* HAHomeScreenVIewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HAHomeScreenVIewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,9 +92,9 @@
 			children = (
 				26EEF7B81B91AEB500132A92 /* AppDelegate.h */,
 				26EEF7B91B91AEB500132A92 /* AppDelegate.m */,
-				26EEF7BB1B91AEB500132A92 /* ViewController.h */,
-				26EEF7BC1B91AEB500132A92 /* ViewController.m */,
-				26EEF7BE1B91AEB500132A92 /* Main.storyboard */,
+				D34C728A1B91BF8800C2586F /* HAHomeScreenVIewController.h */,
+				D34C728B1B91BF8800C2586F /* HAHomeScreenVIewController.m */,
+				D34C728C1B91BF8800C2586F /* HAHomeScreenVIewController.xib */,
 				26EEF7C11B91AEB500132A92 /* Images.xcassets */,
 				26EEF7C31B91AEB500132A92 /* LaunchScreen.xib */,
 				52EDFC5A1B91B9A0004C65DB /* SideMenu */,
@@ -222,7 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26EEF7C01B91AEB500132A92 /* Main.storyboard in Resources */,
+				D34C728E1B91BF8800C2586F /* HAHomeScreenVIewController.xib in Resources */,
 				26EEF7C51B91AEB500132A92 /* LaunchScreen.xib in Resources */,
 				26EEF7C21B91AEB500132A92 /* Images.xcassets in Resources */,
 			);
@@ -242,9 +242,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26EEF7BD1B91AEB500132A92 /* ViewController.m in Sources */,
 				26EEF7BA1B91AEB500132A92 /* AppDelegate.m in Sources */,
 				26EEF7B71B91AEB500132A92 /* main.m in Sources */,
+				D34C728D1B91BF8800C2586F /* HAHomeScreenVIewController.m in Sources */,
 				52EDFC621B91BA5C004C65DB /* RESideMenu.m in Sources */,
 				52EDFC611B91BA5C004C65DB /* RECommonFunctions.m in Sources */,
 				52EDFC631B91BA5C004C65DB /* UIViewController+RESideMenu.m in Sources */,
@@ -270,14 +270,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		26EEF7BE1B91AEB500132A92 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				26EEF7BF1B91AEB500132A92 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		26EEF7C31B91AEB500132A92 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
