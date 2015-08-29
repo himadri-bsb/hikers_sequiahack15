@@ -60,7 +60,7 @@
 }
 
 - (BOOL)signedIn {
-    return NO;
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
