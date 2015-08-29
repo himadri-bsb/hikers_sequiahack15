@@ -136,6 +136,10 @@
     [currentInstallation saveInBackground];
 }
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
+}
+
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     NSLog(@"Did Fail to Register for Remote Notifications");
     NSLog(@"%@, %@", error, error.localizedDescription);
@@ -174,6 +178,8 @@
     slideMenu.contentViewInPortraitOffsetCenterX = -50;
     self.window.rootViewController = slideMenu;
 }
+
+
 
 
 @end
