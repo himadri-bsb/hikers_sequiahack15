@@ -24,7 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    //BLE beacon setup
+    [[MSLogger sharedInstance]setLoglevel:MSLogLevelNone];
     self.beaconstacInstance = [Beaconstac sharedInstanceWithOrganizationId:80 developerToken:@"353e54f0a36e3d64a69d4e9bc292487628dcbf07"];
     self.beaconstacInstance.delegate = self;
     self.beaconstacInstance.beaconaffinity = MSBeaconAffinityLow;
