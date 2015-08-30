@@ -40,6 +40,12 @@
 - (void)setUpRootVC {
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                               [UIColor whiteColor],NSForegroundColorAttributeName, nil];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
+    
     if ([self signedIn]) {
         [self showHomeScreen];
     } else {
@@ -96,27 +102,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    if ([PFUser currentUser]) {
-        //save the installation
-        PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-        currentInstallation[INSTALLATION_USER_ID] = [[PFUser currentUser] objectId];
-        // here we add a column to the installation table and store the current user’s ID
-        // this way we can target specific users later
-
-        // while we’re at it, this is a good place to reset our app’s badge count
-        // you have to do this locally as well as on the parse server by updating
-        // the PFInstallation object
-        [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (error) {
-                NSLog(@"Error is saving installation");
-            }
-            else {
-                // only update locally if the remote update succeeded so they always match
-                [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-                NSLog(@"updated badge");
-            }
-        }];
-    }
+    [self uploadPushInstallationKeyIfNeeded];
 }
 
 
@@ -240,6 +226,32 @@
 
 -(void)didUpdatedLocation:(NSNotification *)notif {
     [self scheduleLocalNNotification];
+}
+
+- (void)uploadPushInstallationKeyIfNeeded {
+    if ([PFUser currentUser] && ![[NSUserDefaults standardUserDefaults] boolForKey:kSentInstallationKey]) {
+        //save the installation
+        PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+        currentInstallation[INSTALLATION_USER_ID] = [[PFUser currentUser] objectId];
+        // here we add a column to the installation table and store the current user’s ID
+        // this way we can target specific users later
+        
+        // while we’re at it, this is a good place to reset our app’s badge count
+        // you have to do this locally as well as on the parse server by updating
+        // the PFInstallation object
+        [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (error) {
+                NSLog(@"Error is saving installation");
+            }
+            else {
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kSentInstallationKey];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                // only update locally if the remote update succeeded so they always match
+                [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+                NSLog(@"updated badge");
+            }
+        }];
+    }
 }
 
 

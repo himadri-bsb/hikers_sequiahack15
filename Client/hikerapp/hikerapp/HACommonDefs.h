@@ -21,6 +21,8 @@
 
 #define kWalkAlertKey @"hikerapp.walk.alert"
 
+#define kSentInstallationKey @"hikerapp.sent.push.installation.key"
+
 #define kLocationPrivacyKey @"hikerapp.location.privacy"
 
 #define TRIGGER_CLASS_NAME @"LocTrigger"
