@@ -25,4 +25,6 @@
 @property (nonatomic, copy) NSString *location;
 @property (nonatomic, strong) UIImage *image;
 
+- (void)saveUser;
+
 @end
