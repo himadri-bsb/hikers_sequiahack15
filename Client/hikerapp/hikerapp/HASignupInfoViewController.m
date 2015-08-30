@@ -316,6 +316,10 @@
         }];
     } else {
         // Update user
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //Display progress indicator
+            [[AppDelegate sharedAppDelegate] showLoader:YES];
+        });
         HAUser *currentUser = [[HAModelManager sharedManager] currentUser];
         if (self.nameTextField.text.length > 0) {
             currentUser.name = self.nameTextField.text;
@@ -328,6 +332,10 @@
         }
         
         [currentUser saveUser];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[AppDelegate sharedAppDelegate] showLoader:NO];
+        });
     }
 }
 
