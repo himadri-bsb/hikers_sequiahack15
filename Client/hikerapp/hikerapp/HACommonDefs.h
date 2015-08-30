@@ -33,5 +33,6 @@
 
 #define kNotificationDidUserChangedLocation @"location.update"
 
+#define kNotificationDidRecivedPushForLocationChange @"location.update.push.notif"
 
 #endif
