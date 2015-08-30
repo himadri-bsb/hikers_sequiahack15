@@ -121,18 +121,32 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex != [actionSheet cancelButtonIndex]) {
         BOOL shouldSetTrigger = NO;
-        if (self.tappedCell.isObserving) {
-            self.tappedCell.isObserving = NO;
-            self.tappedCell.notifIndicatorView.hidden = YES;
-            shouldSetTrigger = NO;
+
+        HAUser *user = nil;
+        if(self.tappedCell) {
+            NSIndexPath *indexPath = [self.tablevIew indexPathForCell:self.tappedCell];
+            user = [self.usersArray objectAtIndex:indexPath.row];
         }
-        else {
-            self.tappedCell.isObserving = YES;
-            self.tappedCell.notifIndicatorView.hidden = NO;
-            shouldSetTrigger = YES;
+
+
+        if(user) {
+            if (self.tappedCell.isObserving) {
+                self.tappedCell.isObserving = NO;
+                self.tappedCell.notifIndicatorView.hidden = YES;
+                shouldSetTrigger = NO;
+
+                [self setLocationTriggerForUserNumber:user.phoneNumber enable:NO];
+            }
+            else {
+                self.tappedCell.isObserving = YES;
+                self.tappedCell.notifIndicatorView.hidden = NO;
+                shouldSetTrigger = YES;
+                
+                [self setLocationTriggerForUserNumber:user.phoneNumber enable:YES];
+            }
         }
+
     }
-    // Decide based on the shouldSetTrigger
 }
 
 - (void)refreshData {
@@ -164,6 +178,38 @@
     }];
 }
 
+- (void)setLocationTriggerForUserNumber:(NSString*)msisdn enable:(BOOL)enable {
+    NSString *currentUserMsisdn = [[[HAModelManager sharedManager] currentUser] phoneNumber];
+    PFQuery *query = [PFQuery queryWithClassName:TRIGGER_CLASS_NAME];
+    [query whereKey:TRIGGER_OBSERVER equalTo:currentUserMsisdn];
+    [query whereKey:TRIGGER_SENDER equalTo:msisdn];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        // Do something with the returned PFObject in the gameScore variable.
+        if([objects count]) {
+            PFObject *existingObj = [objects lastObject];
+            existingObj[TRIGGER_OBSERVER] = currentUserMsisdn;
+            existingObj[TRIGGER_SENDER] = msisdn;
+            existingObj[TRIGGER_ISSET] = enable ? YES_STRING : NO_STRING;
+            [existingObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if(!succeeded) {
+                    NSLog(@"Failed to set location trigger existing object, error=%@",error);
+                }
+            }];
+        }
+        else {
+            //Object doesn't exist
+            PFObject *locTrigger = [PFObject objectWithClassName:TRIGGER_CLASS_NAME];
+            locTrigger[TRIGGER_OBSERVER] = currentUserMsisdn;
+            locTrigger[TRIGGER_SENDER] = msisdn;
+            locTrigger[TRIGGER_ISSET] = enable ? YES_STRING : NO_STRING;
+            [locTrigger saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if(!succeeded) {
+                    NSLog(@"Failed to set location trigger new object, error=%@",error);
+                }
+            }];
+        }
+    }];
+}
 
 
 
