@@ -119,11 +119,6 @@
                 [self.femaleButton setImage:[UIImage imageNamed:@"female_selected"] forState:UIControlStateNormal];
             }
         }
-        [self.avatarImageView setUserInteractionEnabled:NO];
-        [self.nameTextField setEnabled:NO];
-        [self.maleButton setUserInteractionEnabled:NO];
-        [self.femaleButton setUserInteractionEnabled:NO];
-        [self.submitButton setHidden:YES];
     }
 }
 
@@ -321,9 +316,19 @@
         }];
     } else {
         // Update user
+        HAUser *currentUser = [[HAModelManager sharedManager] currentUser];
+        if (self.nameTextField.text.length > 0) {
+            currentUser.name = self.nameTextField.text;
+        }
+        currentUser.image = self.avatarImageView.image;
+        if (self.isMale) {
+            currentUser.gender = @"1";
+        } else {
+            currentUser.gender = @"2";
+        }
         
+        [currentUser saveUser];
     }
-    
 }
 
 - (void)maleButtonAction:(id)sender {

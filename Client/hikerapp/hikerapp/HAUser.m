@@ -104,4 +104,8 @@ NSString * const kKeyImage = @"image";
     return image;
 }
 
+- (void)saveUser {
+    [self.parseUser saveInBackground];
+}
+
 @end
