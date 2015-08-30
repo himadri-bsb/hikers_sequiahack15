@@ -119,6 +119,11 @@
                 [self.femaleButton setImage:[UIImage imageNamed:@"female_selected"] forState:UIControlStateNormal];
             }
         }
+        [self.avatarImageView setUserInteractionEnabled:NO];
+        [self.nameTextField setEnabled:NO];
+        [self.maleButton setUserInteractionEnabled:NO];
+        [self.femaleButton setUserInteractionEnabled:NO];
+        [self.submitButton setHidden:YES];
     }
 }
 
