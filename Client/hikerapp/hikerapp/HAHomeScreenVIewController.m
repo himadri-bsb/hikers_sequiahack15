@@ -53,7 +53,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLongPressForCell:) name:kNotification_LongPressTableCell object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshDataForPushNotif:) name:kNotificationDidRecivedPushForLocationChange object:nil];
-
+    
+    self.title = @"Team Hikers";
+    
     [self refreshData];
 }
 
