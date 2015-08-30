@@ -43,6 +43,9 @@
     if ([self signedIn]) {
         [self showHomeScreen];
     } else {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kLocationPrivacyKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
         HASignupInfoViewController *signUpViewController = [[HASignupInfoViewController alloc] init];
         signUpViewController.isSignUpMode = YES;
         UINavigationController *navigationVC = [[UINavigationController alloc] init];
@@ -137,6 +140,10 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    NSLog(@"Recieved Push %@", userInfo);
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationDidRecivedPushForLocationChange object:self];
+    
     [PFPush handlePush:userInfo];
 }
 
@@ -146,6 +153,7 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    NSLog(@"Recieved Local Notif");
     // Play a sound and show an alert only if the application is active, to avoid doubly notifiying the user.
     if([notification.alertBody isEqualToString:self.takeWalkNotif.alertBody]) {
         if ([application applicationState] == UIApplicationStateActive) {

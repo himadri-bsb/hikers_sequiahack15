@@ -52,12 +52,14 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLongPressForCell:) name:kNotification_LongPressTableCell object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshDataForPushNotif:) name:kNotificationDidRecivedPushForLocationChange object:nil];
+
     [self refreshData];
 }
 
 - (void)handleLongPressForCell:(NSNotification  *)notification {
     self.tappedCell = notification.object;
-//    if ([self.tappedCell.locationLabel.text isEqualToString:UNKNOWN_LOCATION]) {
+    if ([self.tappedCell.locationLabel.text isEqualToString:UNKNOWN_LOCATION]) {
         if (!self.tappedCell.isObserving) {
             UIActionSheet *actionsheet = [[UIActionSheet alloc] initWithTitle:@"Notify?" delegate:self cancelButtonTitle:@"No" destructiveButtonTitle:nil otherButtonTitles:@"Yes", nil];
             [actionsheet showInView:self.view];
@@ -66,7 +68,11 @@
             UIActionSheet *actionsheet = [[UIActionSheet alloc] initWithTitle:@"Remove Observer?" delegate:self cancelButtonTitle:@"No" destructiveButtonTitle:nil otherButtonTitles:@"Yes", nil];
             [actionsheet showInView:self.view];
         }
-//    }
+    }
+}
+
+- (void)refreshDataForPushNotif:(NSNotification  *)notification {
+    [self refreshData];
 }
 
 - (void)didTapMenuButton:(id)sender {

@@ -90,6 +90,7 @@
 
 
     if (![[NSUserDefaults standardUserDefaults] boolForKey:kLocationPrivacyKey]) {
+        NSLog(@"Location Disabled");
         return;
     }
     
@@ -143,6 +144,7 @@
     }
 
     if (![[NSUserDefaults standardUserDefaults] boolForKey:kLocationPrivacyKey]) {
+        NSLog(@"Location Disabled");
         return;
     }
 
