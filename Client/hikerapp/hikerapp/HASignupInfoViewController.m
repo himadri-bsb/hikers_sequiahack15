@@ -23,6 +23,7 @@
 @property (nonatomic, strong) UIButton *femaleButton;
 @property (nonatomic, strong) UIButton *submitButton;
 @property (nonatomic, strong) DGTSession *session;
+@property (nonatomic, assign) BOOL isMale;
 @end
 
 @implementation HASignupInfoViewController
@@ -86,6 +87,7 @@
     [self.maleButton setImage:[UIImage imageNamed:@"male_selected"] forState:UIControlStateNormal];
     [self.maleButton addTarget:self action:@selector(maleButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.maleButton];
+    self.isMale = YES;
     
     self.femaleButton = [[UIButton alloc] initWithFrame:CGRectZero];
     self.femaleButton.translatesAutoresizingMaskIntoConstraints = NO;
@@ -103,6 +105,21 @@
     }
     [self.submitButton addTarget:self action:@selector(submitButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.submitButton];
+    
+    if (!self.isSignUpMode) {
+        HAUser *currentUser = [[HAModelManager sharedManager] currentUser];
+        if (currentUser) {
+            self.avatarImageView.image = currentUser.image;
+            self.nameTextField.text = currentUser.name;
+            if ([currentUser.gender integerValue] == 1) {
+                [self.maleButton setImage:[UIImage imageNamed:@"male_selected"] forState:UIControlStateNormal];
+                [self.femaleButton setImage:[UIImage imageNamed:@"female"] forState:UIControlStateNormal];
+            } else {
+                [self.maleButton setImage:[UIImage imageNamed:@"male"] forState:UIControlStateNormal];
+                [self.femaleButton setImage:[UIImage imageNamed:@"female_selected"] forState:UIControlStateNormal];
+            }
+        }
+    }
 }
 
 - (void)setLayoutConstraints {
@@ -210,96 +227,110 @@
 #pragma mark - Button actions
 
 - (void)submitButtonAction:(id)sender {
-    // Show loader
-    dispatch_async(dispatch_get_main_queue(), ^{
-        //Display progress indicator
-        [[AppDelegate sharedAppDelegate] showLoader:YES];
-    });
-    
-    HAUser *currentUser = [[HAModelManager sharedManager] currentUser];
-    currentUser.parseUser.username = self.session.phoneNumber;
-    currentUser.parseUser.password = self.session.userID;
-    
-    //Handle Parse login
-    [currentUser.parseUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"Registration success!");
-                currentUser.phoneNumber = self.session.phoneNumber;
-                currentUser.userName = self.session.phoneNumber;
-                currentUser.name = self.nameTextField.text;
-                currentUser.userID = self.session.userID;
-                currentUser.image = self.avatarImageView.image;
-                
-                [currentUser.parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                    dispatch_async(dispatch_get_main_queue(), ^ {
-                        if(succeeded) {
-                            //Sign up complete
-                            [[AppDelegate sharedAppDelegate] showLoader:NO];
-                            [[AppDelegate sharedAppDelegate] handleSignUpComplete];
-                        }
-                        else {
-                            if(error) {
-                                NSLog(@"setUpDigitButton error on saving daya, error = %@",error);
+    if (self.isSignUpMode) {
+        // Sign up
+        // Show loader
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //Display progress indicator
+            [[AppDelegate sharedAppDelegate] showLoader:YES];
+        });
+        
+        HAUser *currentUser = [[HAModelManager sharedManager] currentUser];
+        currentUser.parseUser.username = self.session.phoneNumber;
+        currentUser.parseUser.password = self.session.userID;
+        
+        //Handle Parse login
+        [currentUser.parseUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSLog(@"Registration success!");
+                    currentUser.phoneNumber = self.session.phoneNumber;
+                    currentUser.userName = self.session.phoneNumber;
+                    currentUser.name = self.nameTextField.text;
+                    currentUser.userID = self.session.userID;
+                    currentUser.image = self.avatarImageView.image;
+                    if (self.isMale) {
+                        currentUser.gender = @"1";
+                    } else {
+                        currentUser.gender = @"0";
+                    }
+                    
+                    [currentUser.parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        dispatch_async(dispatch_get_main_queue(), ^ {
+                            if(succeeded) {
+                                //Sign up complete
+                                [[AppDelegate sharedAppDelegate] showLoader:NO];
+                                [[AppDelegate sharedAppDelegate] handleSignUpComplete];
                             }
-                        }
-                    });
-                }];
-            });
-        }
-        else {
-            //Signup failed, try logging in
-            [PFUser logInWithUsernameInBackground:self.session.phoneNumber
-                                         password:self.session.userID
-                                            block:^(PFUser *user, NSError *error) {
-                                                if(user) {
-                                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                                        NSLog(@"Registration success!");
-                                                        currentUser.parseUser = user;
-                                                        currentUser.phoneNumber = self.session.phoneNumber;
-                                                        currentUser.userName = self.session.phoneNumber;
-                                                        currentUser.name = self.nameTextField.text;
-                                                        currentUser.userID = self.session.userID;
-                                                        currentUser.image = self.avatarImageView.image;
-                                                        
-                                                        [currentUser.parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                                                            dispatch_async(dispatch_get_main_queue(), ^ {
-                                                                if(succeeded) {
-                                                                    //Sign up complete
-                                                                    [[AppDelegate sharedAppDelegate] showLoader:NO];
-                                                                    [[AppDelegate sharedAppDelegate] handleSignUpComplete];
-                                                                }
-                                                                else {
-                                                                    if(error) {
-                                                                        NSLog(@"setUpDigitButton error on saving daya, error = %@",error);
+                            else {
+                                if(error) {
+                                    NSLog(@"setUpDigitButton error on saving daya, error = %@",error);
+                                }
+                            }
+                        });
+                    }];
+                });
+            }
+            else {
+                //Signup failed, try logging in
+                [PFUser logInWithUsernameInBackground:self.session.phoneNumber
+                                             password:self.session.userID
+                                                block:^(PFUser *user, NSError *error) {
+                                                    if(user) {
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            NSLog(@"Registration success!");
+                                                            currentUser.parseUser = user;
+                                                            currentUser.phoneNumber = self.session.phoneNumber;
+                                                            currentUser.userName = self.session.phoneNumber;
+                                                            currentUser.name = self.nameTextField.text;
+                                                            currentUser.userID = self.session.userID;
+                                                            currentUser.image = self.avatarImageView.image;
+                                                            
+                                                            [currentUser.parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                                                dispatch_async(dispatch_get_main_queue(), ^ {
+                                                                    if(succeeded) {
+                                                                        //Sign up complete
+                                                                        [[AppDelegate sharedAppDelegate] showLoader:NO];
+                                                                        [[AppDelegate sharedAppDelegate] handleSignUpComplete];
                                                                     }
-                                                                }
-                                                            });
-                                                        }];
-                                                    });
-                                                }
-                                                else {
-                                                    NSLog(@"Registration Failed!");
-                                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                                        [[AppDelegate sharedAppDelegate] showLoader:NO];
-                                                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"Error = %@",error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                                                        [alertView show];
-                                                    });
-                                                }
-                                                
-                                            }];
-        }
-    }];
+                                                                    else {
+                                                                        if(error) {
+                                                                            NSLog(@"setUpDigitButton error on saving daya, error = %@",error);
+                                                                        }
+                                                                    }
+                                                                });
+                                                            }];
+                                                        });
+                                                    }
+                                                    else {
+                                                        NSLog(@"Registration Failed!");
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            [[AppDelegate sharedAppDelegate] showLoader:NO];
+                                                            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"Error = %@",error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                                                            [alertView show];
+                                                        });
+                                                    }
+                                                    
+                                                }];
+            }
+        }];
+    } else {
+        // Update user
+        
+    }
+    
 }
 
 - (void)maleButtonAction:(id)sender {
     [self.femaleButton setImage:[UIImage imageNamed:@"female"] forState:UIControlStateNormal];
     [self.maleButton setImage:[UIImage imageNamed:@"male_selected"] forState:UIControlStateNormal];
+    self.isMale = YES;
 }
 
 - (void)femaleButtonAction:(id)sender {
     [self.femaleButton setImage:[UIImage imageNamed:@"female_selected"] forState:UIControlStateNormal];
     [self.maleButton setImage:[UIImage imageNamed:@"male"] forState:UIControlStateNormal];
+    self.isMale = NO;
 }
 
 - (void)changeAvatarAction:(id)sender {
