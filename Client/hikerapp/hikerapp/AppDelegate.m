@@ -103,19 +103,16 @@
         // while we’re at it, this is a good place to reset our app’s badge count
         // you have to do this locally as well as on the parse server by updating
         // the PFInstallation object
-        if (currentInstallation.badge != 0) {
-            currentInstallation.badge = 0;
-            [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (error) {
-                    NSLog(@"Error is saving installation");
-                }
-                else {
-                    // only update locally if the remote update succeeded so they always match
-                    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-                    NSLog(@"updated badge");
-                }
-            }];
-        }
+        [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (error) {
+                NSLog(@"Error is saving installation");
+            }
+            else {
+                // only update locally if the remote update succeeded so they always match
+                [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+                NSLog(@"updated badge");
+            }
+        }];
     }
 }
 
