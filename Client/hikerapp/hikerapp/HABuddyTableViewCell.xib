@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ravindra Shetty" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTC-xy-n8a">
-                        <rect key="frame" x="75" y="13" width="122" height="21"/>
+                        <rect key="frame" x="68" y="13" width="122" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="6Uk-Ca-pI0"/>
                         </constraints>
@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desk" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eA-bh-8PY">
-                        <rect key="frame" x="75" y="37" width="34" height="21"/>
+                        <rect key="frame" x="68" y="37" width="34" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="O8R-6g-DaO"/>
                         </constraints>
@@ -33,7 +33,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="0UU-5n-ZY8">
-                        <rect key="frame" x="15" y="12" width="50" height="50"/>
+                        <rect key="frame" x="8" y="12" width="50" height="50"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="wKA-ss-zMc"/>
@@ -43,7 +43,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="0UU-5n-ZY8" secondAttribute="bottom" constant="3.5" id="DaO-jt-lGC"/>
-                    <constraint firstItem="0UU-5n-ZY8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="GqP-Xh-G25"/>
+                    <constraint firstItem="0UU-5n-ZY8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="GqP-Xh-G25"/>
                     <constraint firstItem="8eA-bh-8PY" firstAttribute="leading" secondItem="0UU-5n-ZY8" secondAttribute="trailing" constant="10" id="NPN-21-VJF"/>
                     <constraint firstItem="qTC-xy-n8a" firstAttribute="leading" secondItem="0UU-5n-ZY8" secondAttribute="trailing" constant="10" id="PXA-jg-67c"/>
                     <constraint firstItem="0UU-5n-ZY8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="Pk3-xA-IIp"/>
