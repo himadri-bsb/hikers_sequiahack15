@@ -14,8 +14,8 @@
 #define UNKNOWN_LOCATION @"Location Unknown"
 #define BEACON_UDID @"B9407F30-F5F8-466E-AFF9-25556B57FE6D"
 
-#define LOCATION_DESK @"Desk"
-#define LOCATION_CAFE @"Cafeteria"
+#define LOCATION_DESK @"Mysore Hall"
+#define LOCATION_CAFE @"Plumeria"
 
 #define INSTALLATION_USER_ID @"installUserId"
 
