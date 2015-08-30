@@ -139,7 +139,7 @@
     [[AppDelegate sharedAppDelegate] showLoader:YES];
     HAUser *currentUser = [[HAModelManager sharedManager] currentUser];
     PFQuery *query = [PFUser query];
-    [query whereKey:@"username" notEqualTo:currentUser.parseUser.username];
+    [query whereKey:@"username" notEqualTo:currentUser.phoneNumber];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!error) {
