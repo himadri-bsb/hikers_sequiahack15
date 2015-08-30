@@ -113,6 +113,7 @@
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"settingsCell1"];
                 cell.detailTextLabel.numberOfLines = 0;
             }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.textLabel.text = @"Allow to track location";
             cell.detailTextLabel.text = @"Will block others to see your corrent location";
             UISwitch *trackSwitch = [[UISwitch alloc] init];
@@ -129,6 +130,7 @@
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"settingsCell2"];
                 cell.detailTextLabel.numberOfLines = 0;
             }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.textLabel.text = @"Take a Walk Alert!";
             cell.detailTextLabel.text = @"Off";
             return cell;
@@ -146,9 +148,12 @@
         profileVC.title = @"Profile";
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
         [self.navigationController pushViewController:profileVC animated:YES];
+        [self showPicker:NO];
     }
     else if (indexPath.section == 1 && indexPath.row == 1) {
         [self showPickerView];
+    } else {
+        [self showPicker:NO];
     }
 }
 
