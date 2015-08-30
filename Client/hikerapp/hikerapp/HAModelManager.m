@@ -93,8 +93,24 @@
         return;
     }
     
-    if(![self.currentUser.location isEqualToString:exactLocation]) {
+    if(![currentUser.location isEqualToString:exactLocation]) {
+        NSString *oldLocation = currentUser.location;
         currentUser.location = exactLocation;
+
+        if([oldLocation isEqualToString:UNKNOWN_LOCATION] && ![exactLocation isEqualToString:UNKNOWN_LOCATION]) {
+            //This might be the case of sending push notification
+            PFQuery *query = [PFQuery queryWithClassName:TRIGGER_CLASS_NAME];
+            [query whereKey:TRIGGER_SENDER equalTo:[[[HAModelManager sharedManager] currentUser] phoneNumber]];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                for (PFObject *object in objects) {
+                    if([object[TRIGGER_ISSET] isEqualToString:YES_STRING]) {
+                        [self sendPushToMsisdn:[object[TRIGGER_OBSERVER] copy] location:exactLocation];
+                        [object deleteInBackground];
+                    }
+                }
+            }];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationDidUserChangedLocation object:nil];
+        }
 
         [currentUser.parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if(error) {
@@ -130,13 +146,16 @@
         return;
     }
 
-    [currentUser.parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if(error) {
-            NSLog(@"beaconstac: exitedBeacon: ERROR on saving location, error = %@",error);
-        }
-        
-    }];
+    if(![currentUser.location isEqualToString:UNKNOWN_LOCATION]) {
+        currentUser.location = UNKNOWN_LOCATION;
 
+        [currentUser.parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if(error) {
+                NSLog(@"beaconstac: exitedBeacon: ERROR on saving location, error = %@",error);
+            }
+
+        }];
+    }
 }
 
 // Tells the delegate when the device has entered a beacon region
@@ -147,6 +166,27 @@
 // Tells the delegate when the device has exited a beacon region
 - (void)beaconstac:(Beaconstac*)beaconstac didExitBeaconRegion:(CLRegion *)region {
     //NSLog(@"DemoApp:Exited beacon region :%@", region.identifier);
+}
+
+
+#pragma mark - Push Notification Sending
+- (void)sendPushToMsisdn:(NSString*)msisdn location:(NSString*)location{
+    NSString *pushText = [NSString stringWithFormat:@"%@ is near %@ now!", [[[HAModelManager sharedManager] currentUser] name], location];
+
+    //Do an user query based on msisdn
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" equalTo:msisdn];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        PFUser *user = [objects lastObject];
+        if(user) {
+            PFQuery *pushQuery = [PFInstallation query];
+            [pushQuery whereKey:INSTALLATION_USER_ID equalTo:user.objectId];
+
+            // Send push notification to query
+            [PFPush sendPushMessageToQueryInBackground:pushQuery
+                                           withMessage:pushText];
+        }
+    }];
 }
 
 

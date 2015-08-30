@@ -11,7 +11,7 @@
 
 #define kNotification_LongPressTableCell @"hikerapp.longpress.notif"
 
-#define UNKNOWN_LOCATION @"Location Not Known"
+#define UNKNOWN_LOCATION @"Location Unknown"
 #define BEACON_UDID @"B9407F30-F5F8-466E-AFF9-25556B57FE6D"
 
 #define LOCATION_DESK @"Desk"
@@ -22,5 +22,16 @@
 #define kWalkAlertKey @"hikerapp.walk.alert"
 
 #define kLocationPrivacyKey @"hikerapp.location.privacy"
+
+#define TRIGGER_CLASS_NAME @"LocTrigger"
+#define TRIGGER_OBSERVER @"observer"
+#define TRIGGER_SENDER @"sender"
+#define TRIGGER_ISSET @"isset"
+
+#define YES_STRING @"YES"
+#define NO_STRING @"NO"
+
+#define kNotificationDidUserChangedLocation @"location.update"
+
 
 #endif
