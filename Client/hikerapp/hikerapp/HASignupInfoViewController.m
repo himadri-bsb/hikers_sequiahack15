@@ -245,10 +245,10 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     NSLog(@"Registration success!");
                     currentUser.phoneNumber = self.session.phoneNumber;
-                    currentUser.userName = self.session.phoneNumber;
                     currentUser.name = self.nameTextField.text;
                     currentUser.userID = self.session.userID;
                     currentUser.image = self.avatarImageView.image;
+
                     if (self.isMale) {
                         currentUser.gender = @"1";
                     } else {
@@ -281,7 +281,6 @@
                                                             NSLog(@"Registration success!");
                                                             currentUser.parseUser = user;
                                                             currentUser.phoneNumber = self.session.phoneNumber;
-                                                            currentUser.userName = self.session.phoneNumber;
                                                             currentUser.name = self.nameTextField.text;
                                                             currentUser.userID = self.session.userID;
                                                             currentUser.image = self.avatarImageView.image;

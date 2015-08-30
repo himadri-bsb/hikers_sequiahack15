@@ -10,7 +10,6 @@
 
 NSString * const kKeyUserId = @"userID";
 NSString * const kKeyName = @"name";
-NSString * const kKeyUserName = @"userName";
 NSString * const kKeyPhoneNumber = @"phoneNumber";
 NSString * const kKeyGender = @"gender";
 NSString * const kKeyLocation = @"location";
@@ -43,22 +42,13 @@ NSString * const kKeyImage = @"image";
 
 
 
-//name
-- (void)setName:(NSString*)name {
-    [self.parseUser setObject:name forKey:kKeyUserName];
+//Name
+- (void)setName:(NSString*)Name {
+    [self.parseUser setObject:Name forKey:kKeyName];
 }
 
 - (NSString*)name {
-    return [self.parseUser objectForKey:kKeyUserName];
-}
-
-//User name
-- (void)setUserName:(NSString*)Name {
-    [self.parseUser setObject:Name forKey:kKeyUserName];
-}
-
-- (NSString*)userName {
-    return [self.parseUser objectForKey:kKeyUserName];
+    return [self.parseUser objectForKey:kKeyName];
 }
 
 
